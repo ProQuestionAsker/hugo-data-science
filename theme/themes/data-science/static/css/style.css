@@ -1,0 +1,32 @@
+/* Changes the style of everything at the top of the homepage */
+
+.intro{
+  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro-content{
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Changes the style of the filtering options above the portfolio on the homepage  */
+.portfolio-filters{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid red;
+  height: 50px;
+}
+
+.portfolio-filters__content{
+  width: 800px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
