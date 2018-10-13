@@ -11,13 +11,14 @@
   <div class="portfolio__grid">
     <!-- Change the range number here to affect the maximum number of items in your grid -->
     {{ range first 50 (where .Data.Pages "Type" "post") }}
-      <div class="item item--{{ Get .item-size }}">
+      <div class="item item--medium">
+        <img class="item__image" src="{{ .Params.image }}" alt="" class="img-responsive">
         <div class="item__details">
           <div class="details__title">
             <h4>{{ .Title }}</h4>
           </div>
           <div class="details__date">
-            <p>{{ .Date.Format "Jan 2, 2006" }} • {{ .ReadingTime }}</p>
+            <p>{{ .Date.Format "January 2, 2006" }} • {{ .ReadingTime }} min read</p>
           </div>
           <div class="details__desc">
             <p>
@@ -32,57 +33,5 @@
       </div>
 
     {{ end }}
-    <div class="item item--medium">
-      <div class="item__details">
-        <div class="details__title">
-          <p>Women's Pockets are Inferior</p>
-        </div>
-        <div class="details__date">
-          <p>Oct 6, 2018 • 3 min read</p>
-        </div>
-        <div class="details__desc">
-          <p>You already know this. Now we have the data to show it.</p>
-        </div>
-      </div>
-    </div>
-    <div class="item item--large">
-      <div class="item__details">
-        <div class="details__title">
-          <p>Women's Pockets are Inferior</p>
-        </div>
-        <div class="details__date">
-          <p>Oct 6, 2018 • 3 min read</p>
-        </div>
-        <div class="details__desc">
-          <p>You already know this. Now we have the data to show it.</p>
-        </div>
-      </div>
-    </div>
-    <div class="item item--large">
-      <div class="item__details">
-        <div class="details__title">
-          <p>Women's Pockets are Inferior</p>
-        </div>
-        <div class="details__date">
-          <p>Oct 6, 2018 • 3 min read</p>
-        </div>
-        <div class="details__desc">
-          <p>You already know this. Now we have the data to show it.</p>
-        </div>
-      </div>
-    </div>
-    <div class="item item--medium">
-      <div class="item__details">
-        <div class="details__title">
-          <p>Women's Pockets are Inferior</p>
-        </div>
-        <div class="details__date">
-          <p>Oct 6, 2018 • 3 min read</p>
-        </div>
-        <div class="details__desc">
-          <p>You already know this. Now we have the data to show it.</p>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
