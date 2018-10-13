@@ -1,12 +1,15 @@
-var Shuffle = window.Shuffle;
-
-console.log("running")
-console.log({Shuffle})
-
-const myShuffle = new Shuffle(document.querySelector('.portfolio__grid'), {
-  itemSelector: '.item',
-  sizer: '.portfolio__filters',
-  buffer: 1,
+var macy = Macy({
+    container: '.portfolio__grid',
+    trueOrder: false,
+    waitForImages: false,
+    margin: 24,
+    columns: 3,
+    breakAt: {
+        1200: 3,
+        940: 3,
+        520: 2,
+        400: 1
+    }
 });
 
-console.log({shuffle})
+console.log({macy})
