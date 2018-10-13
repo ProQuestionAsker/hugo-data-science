@@ -50,13 +50,6 @@
 .portfolio__grid{
   width: 900px;
   margin: 0 auto;
-  display: grid;
-  grid-gap: 30px;
-  /* grid-template-columns: repeat(auto-fit, minmax(300px, 2fr)); */
-  grid-template-columns: repeat(3, minmax(auto, 1fr));
-  grid-template-rows:repeat(auto-fill, minmax(auto, 100px))
-  /* grid-auto-rows: 300px; */
-  grid-auto-flow: row dense;
 }
 
 .item{
@@ -77,6 +70,10 @@
   cursor: pointer;
   counter-increment: item-counter;
   border-radius: 5px;
+  width: 100%;
+  display: inline-block;
+  margin: 0 0 1em;
+  width: 100%;
 }
 
 .item--medium {
