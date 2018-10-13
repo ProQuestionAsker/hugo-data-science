@@ -15,15 +15,26 @@
   align-items: center;
 }
 
+.intro-welcome h1{
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 700;
+  font-size: 56px;
+  margin: 1.5rem 0;
+}
+
 .intro-sub{
   max-width: 350px;
   text-align: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
 }
 
 .intro-more{
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: 'Raleway', sans-serif;
+  font-size: 14px;
 }
 
 /* Changes the style of the filtering options above the portfolio on the homepage  */
@@ -62,6 +73,14 @@
   transition: transform 0.3s ease-in-out;
   cursor: pointer;
   border-radius: 5px;
+  /* opacity: 0; */
+  transform: translateY(15px)
+}
+
+.item[data-macy-complete="1"] {
+  /* opacity: 1; */
+  transform: translateY(0);
+  transition: top .2s ease-in-out,left .2s ease-in-out,opacity .2s ease-in-out,transform .2s ease-in-out;
 }
 
 .item__details {

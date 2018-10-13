@@ -12,4 +12,10 @@ var macy = Macy({
     }
 });
 
-console.log({macy})
+// macy.runOnImageLoad(function (d) {
+//   const image = d.data.img
+//   if (image){
+//     const parent = image.parentNode
+//     parent.classed('is-loaded', true)
+//   }
+// }, true);
