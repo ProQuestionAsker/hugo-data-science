@@ -4,7 +4,6 @@ date = "2016-11-05T18:25:22+05:30"
 description = "Are more babies born after storms? Or superbowl wins?"
 type = "post"
 draft = "false"
-image = "https://raw.githubusercontent.com/ProQuestionAsker/websiteSource/master/themes/hugo-creative-portfolio-theme/exampleSite/static/img/portfolio/a4-paper.jpg"
 +++
 
 Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life. One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.
