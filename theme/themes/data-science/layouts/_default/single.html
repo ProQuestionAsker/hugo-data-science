@@ -19,12 +19,20 @@
         {{ end }}
       </p>
       <div class="post__credentials">
-        {{ with .Params.author }}<p class="post__author">{{ . }}</p>{{ end }}
+        {{if .Params.authors }}
+          <p class="post__author">
+            {{ range .Params.authors }}
+              <a href={{ .link }}><span class="post__author">{{ .name }}</span></a>
+            {{ end }}
+          </p>
+        {{ end }}
         <p class="post__date">{{ .Date.Format "January 2, 2006" }}</p>
       </div>
 
+      <hr>
+
       {{ if .Params.buttons }}
-        <hr>
+
 
         <div class="post__buttons">
           {{ range .Params.buttons }}

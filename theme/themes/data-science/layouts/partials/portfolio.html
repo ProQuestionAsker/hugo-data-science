@@ -13,7 +13,9 @@
     {{ range first 50 (where .Data.Pages "Type" "post") }}
       <div class="item item--medium">
         <a class="item__link" href="{{ .Permalink }}">
-          {{ if .Params.image }}
+          {{ if .Params.thumbnail }}
+            <img class="item__image" src="{{ .Params.thumbnail }}" alt="" class="img-responsive">
+          {{else if .Params.image}}
             <img class="item__image" src="{{ .Params.image }}" alt="" class="img-responsive">
           {{end}}
           <div class="item__details">

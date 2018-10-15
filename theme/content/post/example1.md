@@ -5,7 +5,13 @@ description = "Are more babies born after storms? Or superbowl wins? We investig
 type = "post"
 draft = "false"
 image = "https://raw.githubusercontent.com/ProQuestionAsker/websiteSource/master/content/work/img/mainImages/2017-05-24_babyTiming.png"
-author = "Amber Thomas & Jan Diehm"
+[[authors]]
+link = "https://twitter.com"
+name = "Amber Thomas"
+
+[[authors]]
+link = "https://twitter.com"
+name = "Jan Diehm"
 
 [[buttons]]
 link = "https://pudding.cool"
