@@ -86,6 +86,8 @@ body{
   justify-content: flex-start;
 }
 
+/* Changes the styling of the portfolio items */
+
 .portfolio__grid{
   max-width: 900px;
   margin: 0 auto;
