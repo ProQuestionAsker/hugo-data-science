@@ -1,4 +1,5 @@
 {{ partial "header.html" . }}
+{{ partial "simple-nav.html" . }}
 <div class="article-meta">
 </div>
 
@@ -8,7 +9,7 @@
       <img class="post__image" src="{{ .Params.image }}" alt="" class="img-responsive">
     {{end}}
 
-    <div class="post__info">
+    <section class="post__info">
       <h1 class="post__title">{{ .Title }}</h1>
       <p class="post__desc">
         {{ if .Description }}
@@ -19,18 +20,23 @@
       </p>
       <div class="post__credentials">
         {{ with .Params.author }}<p class="post__author">{{ . }}</p>{{ end }}
-        <p>{{ .Date.Format "January 2, 2006" }}</p>
+        <p class="post__date">{{ .Date.Format "January 2, 2006" }}</p>
       </div>
-    </div>
-    <hr>
 
-    <div class="post__buttons">
-      {{ range .Params.buttons }}
-        <a href={{ .link }}>{{ .text }}</a>
+      {{ if .Params.buttons }}
+        <hr>
+
+        <div class="post__buttons">
+          {{ range .Params.buttons }}
+            <a href={{ .link }}><span>{{ .text }}</span></a>
+          {{ end }}
+        </div>
       {{ end }}
+    </section>
 
-    </div>
+    <section class="post__content">
+      {{ .Content }}
+    </section>
 
-    {{ .Content }}
   </article>
 </main>
