@@ -165,37 +165,3 @@
   overflow: hidden;
   object-fit: contain;
 }
-
-.post__title{
-  font-family: 'Quicksand', sans-serif;
-  font-weight: 700;
-  font-size: 28px;
-  margin: 1rem 0 0.5rem 0;
-}
-
-.post__desc{
-  font-family: 'Quicksand', sans-serif;
-  font-weight: 400;
-  font-size: 18px;
-  margin: 0;
-}
-
-.post__credentials{
-  font-family: 'Raleway', sans-serif;
-  font-size: 14px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-top: 2.25rem;
-}
-
-.post__credentials p{
-  margin: 0;
-}
-
-hr{
-  background-color: #DDD;
-  border: 0;
-  height: 1px;
-  margin: 0.25rem 0;
-}

@@ -1,14 +1,36 @@
 {{ partial "header.html" . }}
 <div class="article-meta">
-<h1><span class="title">{{ .Title | markdownify }}</span></h1>
-{{ with .Params.author }}<h2 class="author">{{ . }}</h2>{{ end }}
-{{ if (gt .Params.date 0) }}<h2 class="date">{{ .Date.Format "2006/01/02" }}</h2>{{ end }}
 </div>
 
 <main>
-  {{ if .Params.image }}
-    <img class="post__image" src="{{ .Params.image }}" alt="" class="img-responsive">
-  {{end}}
+  <article class="post">
+    {{ if .Params.image }}
+      <img class="post__image" src="{{ .Params.image }}" alt="" class="img-responsive">
+    {{end}}
 
-{{ .Content }}
+    <div class="post__info">
+      <h1 class="post__title">{{ .Title }}</h1>
+      <p class="post__desc">
+        {{ if .Description }}
+            {{ .Description }}
+        {{ else }}
+            {{ .Summary | plainify | safeHTML }}
+        {{ end }}
+      </p>
+      <div class="post__credentials">
+        {{ with .Params.author }}<p class="post__author">{{ . }}</p>{{ end }}
+        <p>{{ .Date.Format "January 2, 2006" }}</p>
+      </div>
+    </div>
+    <hr>
+
+    <div class="post__buttons">
+      {{ range .Params.buttons }}
+        <a href={{ .link }}>{{ .text }}</a>
+      {{ end }}
+
+    </div>
+
+    {{ .Content }}
+  </article>
 </main>

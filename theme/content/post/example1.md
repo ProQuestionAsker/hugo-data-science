@@ -5,6 +5,15 @@ description = "Are more babies born after storms? Or superbowl wins? We investig
 type = "post"
 draft = "false"
 image = "https://raw.githubusercontent.com/ProQuestionAsker/websiteSource/master/content/work/img/mainImages/2017-05-24_babyTiming.png"
+author = "Amber Thomas & Jan Diehm"
+
+[[buttons]]
+link = "https://pudding.cool"
+text = "View Original"
+
+[[buttons]]
+link = "https://github.com"
+text = "Download Data"
 +++
 
 Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life. One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.
