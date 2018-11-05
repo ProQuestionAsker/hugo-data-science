@@ -4,7 +4,7 @@ date = "2016-11-05T18:25:22+05:30"
 description = "Are more babies born after storms? Or superbowl wins?"
 type = "post"
 draft = "false"
-categories = ["post"]
+categories = ["project"]
 tags = ["d3.js", "data analysis"]
 thumbnail = "https://images.unsplash.com/photo-1539532647937-aa0660748f36?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=54240c1306f58a27550fbdc2c542f37c&auto=format&fit=crop&w=750&q=80"
 +++

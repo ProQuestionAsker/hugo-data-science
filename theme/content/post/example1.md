@@ -4,6 +4,8 @@ date = "2016-11-05T18:25:22+05:30"
 description = "Are more babies born after storms? Or superbowl wins? We investigate the data on timing and geography of births in the US."
 type = "post"
 draft = "false"
+categories = ["post"]
+tags = ["R", "data analysis"]
 image = "https://raw.githubusercontent.com/ProQuestionAsker/websiteSource/master/content/work/img/mainImages/2017-05-24_babyTiming.png"
 [[authors]]
 link = "https://twitter.com"

@@ -3,20 +3,36 @@
   <nav class="portfolio__filters">
     <div class="filters__content">
       <span class="filters__desc">Show me:</span>
-      <select class="filters__dropdown"></select>
-      <span class="filters__search">add filters</span>
+      <div class="filters-category">
+        <select class="category-dropdown">
+          <option>All</option>
+            {{ range $key, $value := .Site.Taxonomies.categories }}
+                <option>{{ $key | humanize | pluralize }}</option>
+            {{ end }}
+        </select>
+      </div>
+
+        <!-- <span class="filters-tag">add filters</span> -->
+        <input list="tags" class="tag-search" name="tag-search" placeholder="add filters">
+          <!-- <button type="submit"><i class="fa fa-search"></i></button> -->
+          <datalist id="tags">
+            {{ range $key, $value := .Site.Taxonomies.tags }}
+              <option>{{ $key | humanize }}</option>
+            {{ end }}
+          </datalist>
+        <!-- <input type="submit"> -->
     </div>
   </nav>
 
   <div class="portfolio__grid">
     <!-- Change the range number here to affect the maximum number of items in your grid -->
     {{ range first 50 (where .Data.Pages "Type" "post") }}
-      <div class="item item--medium">
+      <div class="item {{ range .Params.categories }}{{ . }}{{ end }}" data-tags="{{ delimit .Params.tags ", " }}">
         <a class="item__link" href="{{ .Permalink }}">
           {{ if .Params.thumbnail }}
-            <img class="item__image" src="{{ .Params.thumbnail }}" alt="" class="img-responsive">
+            <img class="item__image" src="{{ .Params.thumbnail }}" alt="{{ .Params.imageAlt }}" class="img-responsive">
           {{else if .Params.image}}
-            <img class="item__image" src="{{ .Params.image }}" alt="" class="img-responsive">
+            <img class="item__image" src="{{ .Params.image }}" alt="{{ .Params.imageAlt }}" class="img-responsive">
           {{end}}
           <div class="item__details">
             <div class="details__title">
