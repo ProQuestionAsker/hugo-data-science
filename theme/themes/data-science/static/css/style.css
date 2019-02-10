@@ -117,7 +117,7 @@ body{
 
 .portfolio__grid{
   max-width: 900px;
-  margin: 24px auto;
+  margin: 0 auto;
 }
 
 .item{

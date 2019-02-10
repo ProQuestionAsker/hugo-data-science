@@ -21,7 +21,7 @@ body{
 }
 
 .intro-welcome h1{
-  font-family: 'Quicksand', sans-serif;
+  font-family: var(--titleFont);
   font-weight: 700;
   font-size: 56px;
   margin: 1.5rem 0;
@@ -30,7 +30,7 @@ body{
 .intro-sub{
   max-width: 350px;
   text-align: center;
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--bodyFont);
   font-size: 14px;
 }
 
@@ -38,7 +38,7 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--bodyFont);
   font-size: 14px;
   margin-top: 0.75rem;
 }
@@ -48,7 +48,7 @@ body{
 }
 
 .intro-more button{
-  font-family: 'Quicksand', sans-serif;
+  font-family: var(--titleFont);
   font-weight: 700;
   font-size: 16px;
   text-transform: capitalize;
@@ -74,7 +74,7 @@ body{
 .portfolio__filters{
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: baseline;
   border-bottom: 1px solid red;
   height: 50px;
 }
@@ -84,7 +84,36 @@ body{
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  align-items: baseline;
+  padding: 0 0.5rem
 }
+
+.filters-category select{
+  cursor: pointer;
+  height: 2rem;
+  font-size: 16px;
+  line-height: 1.7;
+  background-color: rgba(201,201,201,.3);
+  font-family: var(--titleFont);
+  font-weight: 700;
+  border: 1px solid #000000;
+  padding: 0.25rem;
+  margin-right:	3.125rem;
+}
+
+.filters__desc{
+  font-family: var(--bodyFont);
+  margin-right: 1rem;
+}
+
+.tag-search{
+  font-family: var(--bodyFont);
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid #000000;
+}
+
+/* Changes the styling of the portfolio items */
 
 .portfolio__grid{
   max-width: 900px;
@@ -92,15 +121,19 @@ body{
 }
 
 .item{
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  box-shadow: -2px 2px 10px 0px rgba(68, 68, 68, 0.4);
-  transition: transform 0.3s ease-in-out;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+  /* border: 1px solid #E0E0E0; */
   cursor: pointer;
   border-radius: 5px;
-  transform: translateY(15px)
+  transform: translateY(15px);
+  transition: transform 0.3s ease-in-out;
+}
+
+.item.hidden{
+  display: none;
 }
 
 .item a{
@@ -108,7 +141,8 @@ body{
 }
 
 .item a:hover{
-  box-shadow: 0px 4px 10px 0px rgba(68, 68, 68, 0.4);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.20);
+  transition: 300ms;
 }
 
 .item[data-macy-complete="1"] {
@@ -131,7 +165,7 @@ body{
 }
 
 .details__title{
-  font-family: 'Quicksand', sans-serif;
+  font-family: var(--titleFont);
   font-size: 18px;
   font-weight: 700;
 }
@@ -141,7 +175,7 @@ body{
 }
 
 .details__date{
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--bodyFont);
   font-size: 12px;
   font-weight: 400;
   color: #AAAAAA;
@@ -152,7 +186,7 @@ body{
 }
 
 .details__desc p{
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--bodyFont);
   font-size: 14px;
   font-weight: 400;
   margin-bottom: 0;
@@ -172,21 +206,21 @@ body{
 }
 
 .post__title{
-  font-family: 'Quicksand', sans-serif;
+  font-family: var(--titleFont);
   font-weight: 700;
   font-size: 28px;
   margin: 1rem 0 0.5rem 0;
 }
 
 .post__desc{
-  font-family: 'Quicksand', sans-serif;
+  font-family: var(--titleFont);
   font-weight: 400;
   font-size: 18px;
   margin: 0;
 }
 
 .post__credentials{
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--bodyFont);
   font-size: 14px;
   display: flex;
   flex-direction: row;
@@ -206,7 +240,7 @@ hr{
 }
 
 .post__buttons{
-  font-family: 'Quicksand', sans-serif;
+  font-family: var(--titleFont);
   font-weight: 700;
   font-size: 16px;
   margin: 1.5rem 0 1.5rem 0;
@@ -217,11 +251,12 @@ hr{
   border: 1px solid #000;
   border-radius: 5px;
   text-decoration: none;
+  margin-right: 1rem;
 }
 
 .post__content{
   margin-top: 4rem;
-  font-family: 'Raleway', sans-serif;
+  font-family: var(--bodyFont);
 }
 
 /* Simple Nav Styling */
@@ -234,7 +269,7 @@ hr{
   align-items: center;
   justify-content: flex-start;
   margin-bottom: 1.25rem;
-  font-family: 'Quicksand', sans-serif;
+  font-family: var(--titleFont);
 }
 
 .nav__content{

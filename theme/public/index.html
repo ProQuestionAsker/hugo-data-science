@@ -7,8 +7,10 @@
 	<meta name="generator" content="Hugo 0.40.3" />
   <meta charset="utf-8">
   <title>My New Hugo Site | My New Hugo Site</title>
-  <link rel="stylesheet" type="text/css" href="http://example.org/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/variables.css">
   <link href="https://fonts.googleapis.com/css?family=Quicksand:400,700|Raleway" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 </head>
 
 	
@@ -44,16 +46,40 @@
   <nav class="portfolio__filters">
     <div class="filters__content">
       <span class="filters__desc">Show me:</span>
-      <select class="filters__dropdown"></select>
-      <span class="filters__search">add filters</span>
+      <div class="filters-category">
+        <select class="category-dropdown">
+          <option>All</option>
+            
+                <option>Posts</option>
+            
+                <option>Projects</option>
+            
+        </select>
+      </div>
+
+        
+        <input list="tags" class="tag-search" name="tag-search" placeholder="add filters">
+          
+          <datalist id="tags">
+            
+              <option>D3.js</option>
+            
+              <option>Data analysis</option>
+            
+              <option>Data viz</option>
+            
+              <option>R</option>
+            
+          </datalist>
+        
     </div>
   </nav>
 
   <div class="portfolio__grid">
     
     
-      <div class="item item--medium">
-        <a class="item__link" href="http://example.org/post/example1/">
+      <div class="item post" data-tags="R, data analysis">
+        <a class="item__link" href="/post/example1/">
           
             <img class="item__image" src="https://raw.githubusercontent.com/ProQuestionAsker/websiteSource/master/content/work/img/mainImages/2017-05-24_babyTiming.png" alt="" class="img-responsive">
           
@@ -77,33 +103,8 @@
       </div>
 
     
-      <div class="item item--medium">
-        <a class="item__link" href="http://example.org/post/example2/">
-          
-            <img class="item__image" src="https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?dpr=2&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=1000&amp;q=80&amp;cs=tinysrgb&amp;crop=" alt="" class="img-responsive">
-          
-          <div class="item__details">
-            <div class="details__title">
-              <h4>My Awesome Project</h4>
-            </div>
-            <div class="details__date">
-              <p>November 5, 2016 • 1 min read</p>
-            </div>
-            <div class="details__desc">
-              <p>
-                
-                    Are more babies born after storms? Or superbowl wins?
-                
-              </p>
-            </div>
-          </div>
-
-        </a>
-      </div>
-
-    
-      <div class="item item--medium">
-        <a class="item__link" href="http://example.org/post/example3/">
+      <div class="item post" data-tags="d3.js, data analysis">
+        <a class="item__link" href="/post/example3/">
           
             <img class="item__image" src="https://images.unsplash.com/photo-1539532647937-aa0660748f36?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=54240c1306f58a27550fbdc2c542f37c&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80" alt="" class="img-responsive">
           
@@ -127,11 +128,111 @@
       </div>
 
     
+      <div class="item project" data-tags="d3.js, data viz">
+        <a class="item__link" href="/project/example2/">
+          
+            <img class="item__image" src="https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?dpr=2&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=1000&amp;q=80&amp;cs=tinysrgb&amp;crop=" alt="" class="img-responsive">
+          
+          <div class="item__details">
+            <div class="details__title">
+              <h4>My Awesome Project</h4>
+            </div>
+            <div class="details__date">
+              <p>November 5, 2016 • 1 min read</p>
+            </div>
+            <div class="details__desc">
+              <p>
+                
+                    Are more babies born after storms? Or superbowl wins?
+                
+              </p>
+            </div>
+          </div>
+
+        </a>
+      </div>
+
+    
+      <div class="item project" data-tags="d3.js, data viz">
+        <a class="item__link" href="/project/example5/">
+          
+            <img class="item__image" src="https://images.unsplash.com/photo-1470124182917-cc6e71b22ecc?dpr=2&amp;auto=format&amp;fit=crop&amp;w=1500&amp;h=1000&amp;q=80&amp;cs=tinysrgb&amp;crop=" alt="" class="img-responsive">
+          
+          <div class="item__details">
+            <div class="details__title">
+              <h4>My Awesome Project</h4>
+            </div>
+            <div class="details__date">
+              <p>November 5, 2016 • 1 min read</p>
+            </div>
+            <div class="details__desc">
+              <p>
+                
+                    Are more babies born after storms? Or superbowl wins?
+                
+              </p>
+            </div>
+          </div>
+
+        </a>
+      </div>
+
+    
+      <div class="item post" data-tags="R, data analysis">
+        <a class="item__link" href="/post/example6/">
+          
+            <img class="item__image" src="https://raw.githubusercontent.com/ProQuestionAsker/websiteSource/master/content/work/img/mainImages/2017-05-24_babyTiming.png" alt="" class="img-responsive">
+          
+          <div class="item__details">
+            <div class="details__title">
+              <h4>My Awesome Project</h4>
+            </div>
+            <div class="details__date">
+              <p>October 5, 2016 • 1 min read</p>
+            </div>
+            <div class="details__desc">
+              <p>
+                
+                    Are more babies born after storms? Or superbowl wins? We investigate the data on timing and geography of births in the US.
+                
+              </p>
+            </div>
+          </div>
+
+        </a>
+      </div>
+
+    
+      <div class="item project" data-tags="d3.js, data analysis">
+        <a class="item__link" href="/project/example4/">
+          
+            <img class="item__image" src="https://images.unsplash.com/photo-1539532647937-aa0660748f36?ixlib=rb-0.3.5&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;s=54240c1306f58a27550fbdc2c542f37c&amp;auto=format&amp;fit=crop&amp;w=750&amp;q=80" alt="" class="img-responsive">
+          
+          <div class="item__details">
+            <div class="details__title">
+              <h4>My Awesome Project</h4>
+            </div>
+            <div class="details__date">
+              <p>January 1, 0001 • 1 min read</p>
+            </div>
+            <div class="details__desc">
+              <p>
+                
+                    Are more babies born after storms? Or superbowl wins?
+                
+              </p>
+            </div>
+          </div>
+
+        </a>
+      </div>
+
+    
   </div>
 </section>
 
-		<script src="http://example.org/js/macy.js"></script>
-<script src="http://example.org/js/masonry-custom.js"></script>
+		<script src="/js/masonry-custom.js"></script>
+
 
 	</body>
 

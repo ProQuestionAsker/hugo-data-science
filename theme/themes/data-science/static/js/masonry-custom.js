@@ -4,7 +4,7 @@ var macy = Macy({
     waitForImages: false,
     margin: {
       x: 24,
-      y: 0
+      y: 24
     },
     columns: 3,
     breakAt: {

@@ -1,6 +1,6 @@
 +++
 title = "My Awesome Project"
-date = "2016-11-05T18:25:22+05:30"
+date = "2016-11-0T18:25:22+05:30"
 description = "Are more babies born after storms? Or superbowl wins?"
 type = "post"
 draft = "false"
