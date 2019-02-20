@@ -1,10 +1,12 @@
-import macy from './macy'
+//import macy from './macy'
 
 const selectCat = document.getElementsByClassName("category-dropdown")[0]
 
 function handleCatChange(){
   const val = selectCat.value
   const singular = val.slice(0, -1)
+
+  console.log({val, singular})
 
   const items = document.getElementsByClassName(`item ${singular}`)
   show(items)
