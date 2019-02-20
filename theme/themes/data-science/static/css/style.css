@@ -106,7 +106,7 @@ body{
   margin-right: 1rem;
 }
 
-.tag-search{
+#tag-search{
   font-family: var(--bodyFont);
   font-size: 16px;
   border: none;
