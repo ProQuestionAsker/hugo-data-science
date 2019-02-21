@@ -6,7 +6,7 @@ type = "post"
 draft = "false"
 categories = ["post"]
 tags = ["R", "data analysis"]
-image = "https://raw.githubusercontent.com/ProQuestionAsker/websiteSource/master/content/work/img/mainImages/2017-05-24_babyTiming.png"
+image = ""
 [[authors]]
 link = "https://twitter.com"
 name = "Amber Thomas"

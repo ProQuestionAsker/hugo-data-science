@@ -13,7 +13,7 @@
       </div>
 
         <!-- <span class="filters-tag">add filters</span> -->
-        <input list="tags" id="tag-search" name="tag-search" placeholder="add filters" onInput='filterTags()'>
+        <input list="tags" id="tag-search" name="tag-search" placeholder="add a filter" onInput='filterTags()'>
           <!-- <button type="submit"><i class="fa fa-search"></i></button> -->
           <datalist id="tags">
             {{ range $key, $value := .Site.Taxonomies.tags }}

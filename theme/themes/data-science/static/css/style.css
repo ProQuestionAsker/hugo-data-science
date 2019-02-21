@@ -19,12 +19,32 @@ body{
   flex-direction: column;
   align-items: center;
 }
-
+/*
 .intro-welcome h1{
-  font-family: var(--titleFont);
+  font-family: 'Quicksand';
   font-weight: 700;
   font-size: 56px;
   margin: 1.5rem 0;
+} */
+
+.small-title{
+  font-size: 28px;
+  font-family: 'Quicksand';
+  font-weight: 500;
+  margin: 0;
+  line-height: 1;
+  padding-left: 39px;
+  transform: translateY(20px)
+}
+
+.name{
+  font-size: 75px;
+  font-family: 'Raleway';
+  font-weight: 900;
+  color: #5C82FF;
+  margin: 0;
+  line-height: 1
+
 }
 
 .intro-sub{
@@ -32,6 +52,10 @@ body{
   text-align: center;
   font-family: var(--bodyFont);
   font-size: 14px;
+}
+
+.fa-heart{
+  color: #5C82FF;
 }
 
 .intro-more{
@@ -69,14 +93,21 @@ body{
 .portfolio{
   display: block;
   position: relative;
+  background-color: #F0F3FF
 }
 
 .portfolio__filters{
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+  z-index: 10;
   display: flex;
   justify-content: center;
-  align-items: baseline;
-  border-bottom: 1px solid red;
+  align-items: center;
+  box-shadow: 0px 5px 10px rgba(255, 255, 255, 0.5);
   height: 50px;
+  margin-bottom: 30px;
+  background: linear-gradient(90deg, #B2C4FF 0%, #5C82FF 100%)
 }
 
 .filters__content{
@@ -93,12 +124,18 @@ body{
   height: 2rem;
   font-size: 16px;
   line-height: 1.7;
-  background-color: rgba(201,201,201,.3);
+  background-color: #FFF;
   font-family: var(--titleFont);
   font-weight: 700;
-  border: 1px solid #000000;
+  border: 1px solid #000;
   padding: 0.25rem;
   margin-right:	3.125rem;
+  color: #000
+}
+
+#tag-search::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #000;
+  opacity: 1; /* Firefox */
 }
 
 .filters__desc{
@@ -110,7 +147,8 @@ body{
   font-family: var(--bodyFont);
   font-size: 16px;
   border: none;
-  border-bottom: 1px solid #000000;
+  border-bottom: 1px solid #000;
+  background-color: #FFF
 }
 
 /* Changes the styling of the portfolio items */
@@ -124,7 +162,9 @@ body{
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15);
+  /* box-shadow: 0 40px 80px -40px rgba(0,0,0,1); */
+  /* box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15); */
+  box-shadow: 2px 2px 8px rgba(157, 172, 255, 0.35);
   /* border: 1px solid #E0E0E0; */
   cursor: pointer;
   border-radius: 5px;
@@ -141,7 +181,7 @@ body{
 }
 
 .item a:hover{
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.20);
+  box-shadow: 2px 2px 10px rgba(157, 172, 255, 0.45);
   transition: 300ms;
 }
 
@@ -155,13 +195,15 @@ body{
    padding: 1.25rem 1rem;
    background: #fff;
    letter-spacing: 1px;
-   color: #000
+   color: #000;
+   border-radius: 0 0 5px 5px
 }
 
 .item__image {
   position: relative;
   width: 100%;
   object-fit: cover;
+  border-radius: 5px 5px 0 0
 }
 
 .details__title{
