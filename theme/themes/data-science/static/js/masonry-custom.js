@@ -1,20 +1,23 @@
 let filterDrawerOpen = false;
-let filterButton = document.getElementsByClassName('filters-tags')[0]
+let filterButton = document.getElementsByClassName('filters-click')[0]
 let filterDrawer = document.getElementsByClassName('filters-drawer')[0]
 let chevron = document.getElementById('tag-chevron')
-let selectedTags = document.getElementsByClassName('filters-selected')[0]
+let selectedTags = document.getElementsByClassName('filters-selected')
 let allTags = document.getElementsByClassName('drawer-tag')
 
 let tags = {}
-console.log({chevron})
 
 // setup filter button click
 filterButton.addEventListener('click', handleFilterDrawer)
 
 Array.from(allTags).forEach(function(element) {
-  console.log({element})
   element.addEventListener('click', handleAddTag);
 });
+
+Array.from(selectedTags).forEach(function(element) {
+  element.addEventListener('click', handleAddTag);
+});
+
 
 
 
@@ -57,19 +60,19 @@ function rearrange(){
 const selectCat = document.getElementsByClassName("category-dropdown")[0]
 
 // dropdown selections
-let singular = "All"
+let singular = "All Categories"
 
 function handleCatChange(){
   const val = selectCat.value
   singular = val.slice(0, -1)
 
-  if (val == "All"){
+  if (val == "All Categories"){
     let selected = document.getElementsByClassName('item')
     show(selected)
     rearrange()
   }
 
-  else if (val != "All"){
+  else if (val != "All Categories"){
     const unselected = document.querySelectorAll(`.item:not(.${singular})`)
     hide(unselected)
 
@@ -180,75 +183,58 @@ function handleFilterDrawer(){
 }
 
 function handleAddTag(){
-  let $btn = this
-  const active = $btn.classList.contains('is-active')
-  let sel = this.innerText.trim();
+  const $btn = this
+  const sel = this.innerText.trim();
   const searchVal = sel === 'R' ? 'R' : sel.toLowerCase()
-  const icon = this.getElementsByTagName('i')[0]
+  let active = null
 
-  if (active === false){
-    icon.classList.remove('fa-plus')
-    icon.classList.add('fa-times')
-    $btn.classList.add('is-active')
-  } else if (active === true){
+  // if the button was in the drawer
+  if ($btn.classList.contains('drawer-tag')){
+    active = $btn.classList.contains('is-active')
+    const icon = this.getElementsByTagName('i')[0]
+
+    if (active === false){
+      icon.classList.remove('fa-plus')
+      icon.classList.add('fa-times')
+      $btn.classList.add('is-active')
+    } else if (active === true){
+      icon.classList.remove('fa-times')
+      icon.classList.add('fa-plus')
+      $btn.classList.remove('is-active')
+    }
+  } else if ($btn.classList.contains('filters-selected')){
+    //const val = this.innerText.trim()
+    const drawerBtn = document.querySelector(`[data-drawertag="${sel}"]`)
+    drawerBtn.classList.remove('is-active')
+    const icon = drawerBtn.getElementsByTagName('i')[0]
     icon.classList.remove('fa-times')
     icon.classList.add('fa-plus')
-    $btn.classList.remove('is-active')
+    active = true
   }
 
   tags[searchVal] = !active
-
-  console.log({tags, searchVal})
 
   const tagVals = Object.keys(tags)
     .filter(d => tags[d])
     .map(d => d)
 
+    console.log({active, tagVals, tags})
+
   let tagToUnhide = document.querySelector(`[data-tag="${sel}"]`)
   tagToUnhide.hidden = !tagToUnhide.hidden
 
   let selected = null
+  console.log({singular})
   if (singular == 'Post') {
     selected = document.querySelectorAll('.post')
   } else if (singular == 'Project'){
     selected = document.querySelectorAll('.project')
   } else selected = document.querySelectorAll('.item')
-  console.log({singular, selected})
   searchEachPost(selected, tagVals)
   finalizeFilters()
 
-  // push to tags Array
-  // tags.push(sel)
-  // console.log({tags})
 }
 
-function handleButtonClick(){
-  const $btn = d3.select(this)
-  const value = $btn.at('data-button')
-  const active = $btn.classed('is-active')
-  $btn.classed('is-active', !active)
-  bodySel[value.toLowerCase()] = !active
-
-  const bodyVals = Object.keys(bodySel)
-    .filter(d => bodySel[d])
-    .map(d => d)
-
-  $blocks.classed('is-highlighted', d => {
-    if (bodyVals.length){
-    const success = bodyVals.every((val) => d.bodyParts.includes(val))
-    const bp = d.bodyParts
-    return success}
-    else return false
-  })
+function handleRemoveTag(){
 
 }
-
-
-
-// macy.runOnImageLoad(function (d) {
-//   const image = d.data.img
-//   if (image){
-//     const parent = image.parentNode
-//     parent.classed('is-loaded', true)
-//   }
-// }, true);

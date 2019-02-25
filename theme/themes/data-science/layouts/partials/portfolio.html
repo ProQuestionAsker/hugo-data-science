@@ -22,9 +22,10 @@
 
 
       <div class="filters-tags">
-        <p class='tags-meta'>Filters</p>
-        <i id='tag-chevron' class="fas fa-chevron-down"></i>
-
+        <div class='filters-click'>
+          <p class='tags-meta'>Filters</p>
+          <i id='tag-chevron' class="fas fa-chevron-down"></i>
+        </div>
         <div class='filters-selected'>
         {{ range $key, $value := .Site.Taxonomies.tags }}
           <p class="item__meta-tag tag-selected" data-tag="{{ $key | humanize }}" hidden="true">{{ $key | humanize }} <i class="fas fa-times"></i></p>
@@ -37,7 +38,7 @@
   <div class='filters-drawer'>
     <div class='drawer-contents'>
       {{ range $key, $value := .Site.Taxonomies.tags }}
-        <p class="item__meta-tag drawer-tag">{{ $key | humanize}} <i class="fas fa-plus"></i></p>
+        <p class="item__meta-tag drawer-tag" data-drawerTag="{{ $key | humanize }}">{{ $key | humanize}} <i class="fas fa-plus"></i></p>
       {{ end }}
     </div>
   </div>

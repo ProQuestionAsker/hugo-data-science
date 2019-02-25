@@ -170,13 +170,19 @@ body{
   align-items: baseline;
 }
 
+.filters-click{
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  cursor: pointer;
+}
+
 .tags-meta{
   font-size: 16px;
   text-shadow: 0px 1px 1px rgba(29, 62, 169, 0.8);
   color: var(--white);
   margin-right: 10px;
   font-family: var(--bodyFont);
-  cursor: pointer;
 }
 
 .filters-tags i{
