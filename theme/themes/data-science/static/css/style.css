@@ -229,6 +229,7 @@ body{
   display: flex;
   flex-direction: row;
   margin-left: 10px;
+  mouse-events: none;
 }
 
 .tag-selected{

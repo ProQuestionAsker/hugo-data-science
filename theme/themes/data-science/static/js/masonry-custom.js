@@ -2,7 +2,7 @@ let filterDrawerOpen = false;
 let filterButton = document.getElementsByClassName('filters-click')[0]
 let filterDrawer = document.getElementsByClassName('filters-drawer')[0]
 let chevron = document.getElementById('tag-chevron')
-let selectedTags = document.getElementsByClassName('filters-selected')
+let selectedTags = document.getElementsByClassName('tag-selected')
 let allTags = document.getElementsByClassName('drawer-tag')
 
 let tags = {}
@@ -65,7 +65,6 @@ let singular = "All Categories"
 function handleCatChange(){
   const val = selectCat.value
   singular = val.slice(0, -1)
-  console.log(tags)
   let anyTags = Object.values(tags).filter(d => d === true)
 
   if (anyTags.length === 0){
@@ -86,8 +85,9 @@ function handleCatChange(){
   }
 
   else if (anyTags.length > 0){
+    filterByTag()
     if (val == "All Categories"){
-      let selected = document.getElementsByClassName('.tagFoun')
+      let selected = document.getElementsByClassName('.tagFound')
       show(selected)
       rearrange()
     }
@@ -122,11 +122,12 @@ let tagMatches = []
 
 function searchEachPost(allPosts, search){
   [...allPosts].forEach((post) => {
-      post.classList.remove('tagFound')
+      //post.classList.remove('tagFound')
       let postTags = getTags(post)
       const success = search.every((val) => postTags.includes(val))
       if (success === true) post.classList.add('tagFound')
     });
+  finalizeFilters()
 }
 
 // if (bodyVals.length){
@@ -143,20 +144,17 @@ function finalizeFilters(){
   const selected = document.getElementsByClassName(`item tagFound`)
   show(selected)
 
-  console.log({selected, unselected})
   rearrange()
 }
 
 function filterTags(){
   const val = selectTag.value
   const options = document.getElementById('tags').childNodes
-  console.log({val})
 
   if (val === ""){
     const all = document.querySelectorAll('.item')
 
     const spread = [...all]
-    console.log({spread})
     spread.forEach((post) => {
         post.classList.remove('tagFound')
       });
@@ -176,7 +174,6 @@ function filterTags(){
           } else if (singular == 'Project'){
             selected = document.querySelectorAll('.project')
           } else selected = document.querySelectorAll('.item')
-          console.log({singular, selected})
           searchEachPost(selected, searchVal)
           finalizeFilters()
 
@@ -224,9 +221,9 @@ function handleAddTag(){
       icon.classList.add('fa-plus')
       $btn.classList.remove('is-active')
     }
-  } else if ($btn.classList.contains('filters-selected')){
+  } else if ($btn.classList.contains('tag-selected')){
     //const val = this.innerText.trim()
-        console.log({sel})
+
     const drawerBtn = document.querySelector(`[data-drawertag="${sel}"]`)
     drawerBtn.classList.remove('is-active')
     const icon = drawerBtn.getElementsByTagName('i')[0]
@@ -247,16 +244,22 @@ function filterByTag(){
     .filter(d => tags[d])
     .map(d => d)
 
+    //console.log({tagVals, tags})
+
   let selected = null
   if (singular == 'Post') {
     selected = document.querySelectorAll('.post')
   } else if (singular == 'Project'){
     selected = document.querySelectorAll('.project')
   } else selected = document.querySelectorAll('.item')
+
+  const allItems = document.querySelectorAll('.item')
+
+  // remove tag found from each post
+  const removeTags = [...allItems].forEach((post) => {
+      post.classList.remove('tagFound')
+  })
+
   searchEachPost(selected, tagVals)
-  finalizeFilters()
-}
-
-function handleRemoveTag(){
-
+  //finalizeFilters()
 }
