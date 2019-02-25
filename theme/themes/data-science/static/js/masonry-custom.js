@@ -65,22 +65,43 @@ let singular = "All Categories"
 function handleCatChange(){
   const val = selectCat.value
   singular = val.slice(0, -1)
+  console.log(tags)
+  let anyTags = Object.values(tags).filter(d => d === true)
 
-  if (val == "All Categories"){
-    let selected = document.getElementsByClassName('item')
-    show(selected)
-    rearrange()
+  if (anyTags.length === 0){
+    if (val == "All Categories"){
+      let selected = document.getElementsByClassName('item')
+      show(selected)
+      rearrange()
+    }
+
+    else if (val != "All Categories"){
+      const unselected = document.querySelectorAll(`.item:not(.${singular})`)
+      hide(unselected)
+
+      const selected = document.getElementsByClassName(`item ${singular}`)
+      show(selected)
+      rearrange()
+    }
   }
 
-  else if (val != "All Categories"){
-    const unselected = document.querySelectorAll(`.item:not(.${singular})`)
-    hide(unselected)
+  else if (anyTags.length > 0){
+    if (val == "All Categories"){
+      let selected = document.getElementsByClassName('.tagFoun')
+      show(selected)
+      rearrange()
+    }
 
-    const selected = document.getElementsByClassName(`item ${singular}`)
-    show(selected)
+    else if (val != "All Categories"){
+      const unselected = document.querySelectorAll(`.item:not(.${singular})`)
+      hide(unselected)
 
-    rearrange()
+      const selected = document.getElementsByClassName(`item ${singular} tagFound`)
+      show(selected)
+      rearrange()
+    }
   }
+
 }
 
 selectCat.addEventListener("change", handleCatChange)
@@ -102,8 +123,8 @@ let tagMatches = []
 function searchEachPost(allPosts, search){
   [...allPosts].forEach((post) => {
       post.classList.remove('tagFound')
-      let tags = getTags(post)
-      const success = search.every((val) => tags.includes(val))
+      let postTags = getTags(post)
+      const success = search.every((val) => postTags.includes(val))
       if (success === true) post.classList.add('tagFound')
     });
 }
@@ -122,6 +143,7 @@ function finalizeFilters(){
   const selected = document.getElementsByClassName(`item tagFound`)
   show(selected)
 
+  console.log({selected, unselected})
   rearrange()
 }
 
@@ -204,6 +226,7 @@ function handleAddTag(){
     }
   } else if ($btn.classList.contains('filters-selected')){
     //const val = this.innerText.trim()
+        console.log({sel})
     const drawerBtn = document.querySelector(`[data-drawertag="${sel}"]`)
     drawerBtn.classList.remove('is-active')
     const icon = drawerBtn.getElementsByTagName('i')[0]
@@ -214,17 +237,17 @@ function handleAddTag(){
 
   tags[searchVal] = !active
 
+  let tagToUnhide = document.querySelector(`[data-tag="${sel}"]`)
+  tagToUnhide.hidden = !tagToUnhide.hidden
+  filterByTag()
+}
+
+function filterByTag(){
   const tagVals = Object.keys(tags)
     .filter(d => tags[d])
     .map(d => d)
 
-    console.log({active, tagVals, tags})
-
-  let tagToUnhide = document.querySelector(`[data-tag="${sel}"]`)
-  tagToUnhide.hidden = !tagToUnhide.hidden
-
   let selected = null
-  console.log({singular})
   if (singular == 'Post') {
     selected = document.querySelectorAll('.post')
   } else if (singular == 'Project'){
@@ -232,7 +255,6 @@ function handleAddTag(){
   } else selected = document.querySelectorAll('.item')
   searchEachPost(selected, tagVals)
   finalizeFilters()
-
 }
 
 function handleRemoveTag(){
