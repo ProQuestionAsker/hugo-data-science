@@ -2,5 +2,6 @@ baseURL = "/"
 languageCode = "en-us"
 title = "My New Hugo Site"
 theme = "data-science"
+disqusShortname = "yourdiscussshortname"
 
 # sectionPagesMenu = "main"

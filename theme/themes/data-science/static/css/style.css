@@ -10,6 +10,14 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
+  display: flex;
+  flex-direction: row;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.introImage{
+  max-width: 310px;
 }
 
 .intro-content{
@@ -38,13 +46,12 @@ body{
 }
 
 .name{
-  font-size: 75px;
-  font-family: 'Raleway';
+  font-size: 36px;
+  font-family: var(--titleFont);
   font-weight: 900;
   color: #5C82FF;
-  margin: 0;
+  margin: 0 0 30px 0;
   line-height: 1
-
 }
 
 .intro-sub{
@@ -54,17 +61,23 @@ body{
   font-size: 14px;
 }
 
+.intro-sub p{
+  margin: 0
+}
+
 .fa-heart{
   color: #5C82FF;
 }
+
 
 .intro-more{
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: var(--bodyFont);
-  font-size: 14px;
-  margin-top: 0.75rem;
+  font-size: 12px;
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 
 .intro-more p{
@@ -87,6 +100,22 @@ body{
 .intro-buttons{
   display: flex;
   flex-direction: row;
+  align-items: baseline;
+  margin-top: 10px;
+}
+
+
+.twitter, .github, .envelope{
+  color: var(--gray);
+  margin: 0px 5px;
+  transition: 300ms ease-in-out;
+  font-size: 16px;
+}
+
+.intro-buttons a:hover{
+  color: #B2C4FF;
+  transition: 300ms ease-in-out;
+  cursor: pointer
 }
 
 /* Changes the style of the filtering options above the portfolio on the homepage  */
@@ -107,7 +136,7 @@ body{
   box-shadow: 0px 5px 10px rgba(255, 255, 255, 0.5);
   height: 50px;
   margin-bottom: 30px;
-  background: linear-gradient(90deg, #B2C4FF 0%, #5C82FF 100%)
+  background-color: var(--primary);
 }
 
 .filters__content{
@@ -121,21 +150,41 @@ body{
 
 .filters-category select{
   cursor: pointer;
+  width: 160px;
   height: 2rem;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.7;
   background-color: #FFF;
-  font-family: var(--titleFont);
+  font-family: var(--bodyFont);
   font-weight: 700;
-  border: 1px solid #000;
-  padding: 0.25rem;
-  margin-right:	3.125rem;
-  color: #000
+  padding: 0 5px;
+  margin-right:	50px;
+  color: #000;
+  box-shadow: 0px 2px 4px rgba(29, 62, 169, 0.3);
+  outline: 0;
+  border: 0;
 }
 
-#tag-search::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: #000;
-  opacity: 1; /* Firefox */
+.filters-tags{
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.filters-tags p{
+  font-size: 16px;
+  text-shadow: 0px 1px 1px rgba(29, 62, 169, 0.8);
+  color: var(--white)
+}
+
+.filters-tags i{
+  text-shadow: 0px 1px 1px rgba(29, 62, 169, 0.8);
+  color: var(--white)
+}
+
+.filters-tags p{
+  margin-right: 10px;
+  font-family: var(--bodyFont)
 }
 
 .filters__desc{
@@ -143,18 +192,11 @@ body{
   margin-right: 1rem;
 }
 
-#tag-search{
-  font-family: var(--bodyFont);
-  font-size: 16px;
-  border: none;
-  border-bottom: 1px solid #000;
-  background-color: #FFF
-}
 
 /* Changes the styling of the portfolio items */
 
 .portfolio__grid{
-  max-width: 900px;
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -164,7 +206,7 @@ body{
   justify-content: flex-end;
   /* box-shadow: 0 40px 80px -40px rgba(0,0,0,1); */
   /* box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15); */
-  box-shadow: 2px 2px 8px rgba(157, 172, 255, 0.35);
+  box-shadow: 0px 10px 20px rgba(33, 51, 111, 0.3);
   /* border: 1px solid #E0E0E0; */
   cursor: pointer;
   border-radius: 5px;
@@ -192,7 +234,7 @@ body{
 
 .item__details {
    z-index: 1;
-   padding: 1.25rem 1rem;
+   padding: 20px 15px;
    background: #fff;
    letter-spacing: 1px;
    color: #000;
@@ -208,7 +250,7 @@ body{
 
 .details__title{
   font-family: var(--titleFont);
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 700;
 }
 
@@ -217,10 +259,10 @@ body{
 }
 
 .details__date{
-  font-family: var(--bodyFont);
+  font-family: var(--annotationFont);
   font-size: 12px;
   font-weight: 400;
-  color: #AAAAAA;
+  color: var(--gray)
 }
 
 .details__date p{
@@ -232,6 +274,36 @@ body{
   font-size: 14px;
   font-weight: 400;
   margin-bottom: 0;
+}
+
+.item__meta{
+  margin-top: 20px;
+}
+
+.item__meta-category{
+  font-family: var(--bodyFont);
+  font-size: 12px;
+  color: var(--primary);
+  text-transform: uppercase;
+  margin: 0 0 15px 0;
+}
+
+.item__meta-tag{
+  font-family: var(--bodyFont);
+  font-size: 12px;
+  font-weight: bold;
+  padding: 3px 6px;
+  border-radius: 5px;
+  background-color: var(--buttonBG);
+  color: var(--buttonDark);
+  box-shadow: 0px 1px 1px rgba(33, 51, 111, 0.3);
+  transition: 300ms ease-in-out
+}
+
+.item__meta-tag:hover{
+  background-color: var(--primary);
+  color: var(--white);
+  transition: 300ms ease-in-out
 }
 
 /* Single Page Styling */
@@ -290,10 +362,19 @@ hr{
 
 .post__buttons a{
   padding: 0.75rem 1rem;
-  border: 1px solid #000;
+  /* border: 1px solid #000; */
+  border: 1px solid #516fd4;
   border-radius: 5px;
   text-decoration: none;
   margin-right: 1rem;
+  color: #516fd4;
+  transition: 300ms ease-in-out
+}
+
+.post__buttons a:hover{
+  background-color : #516fd4;
+  color: #FFF;
+  transition: 300ms ease-in-out
 }
 
 .post__content{
@@ -312,6 +393,7 @@ hr{
   justify-content: flex-start;
   margin-bottom: 1.25rem;
   font-family: var(--titleFont);
+  background-color: var(--primary);
 }
 
 .nav__content{

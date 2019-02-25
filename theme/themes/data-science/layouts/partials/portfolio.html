@@ -2,10 +2,9 @@
 
   <nav class="portfolio__filters">
     <div class="filters__content">
-      <span class="filters__desc">Show me:</span>
       <div class="filters-category">
         <select class="category-dropdown">
-          <option>All</option>
+          <option>All Categories</option>
             {{ range $key, $value := .Site.Taxonomies.categories }}
                 <option>{{ $key | humanize | pluralize }}</option>
             {{ end }}
@@ -13,14 +12,19 @@
       </div>
 
         <!-- <span class="filters-tag">add filters</span> -->
-        <input list="tags" id="tag-search" name="tag-search" placeholder="add a filter" onInput='filterTags()'>
-          <!-- <button type="submit"><i class="fa fa-search"></i></button> -->
+        <!-- <input list="tags" id="tag-search" name="tag-search" placeholder="add a filter" onInput='filterTags()'>
           <datalist id="tags">
             {{ range $key, $value := .Site.Taxonomies.tags }}
               <option>{{ $key | humanize }}</option>
             {{ end }}
-          </datalist>
+          </datalist> -->
         <!-- <input type="submit"> -->
+
+
+      <div class="filters-tags">
+        <p class='tags-meta'>Filters</p>
+        <i class="fas fa-chevron-down"></i>
+      </div>
     </div>
   </nav>
 
@@ -35,6 +39,10 @@
             <img class="item__image" src="{{ .Params.image }}" alt="{{ .Params.imageAlt }}" class="img-responsive">
           {{end}}
           <div class="item__details">
+            {{ range .Params.categories }}
+              <p class='item__meta-category'>{{ . }}</p>
+            {{ end }}
+
             <div class="details__title">
               <h4>{{ .Title }}</h4>
             </div>
@@ -51,11 +59,10 @@
               </p>
             </div>
             <div class="item__meta">
-              <p class='item__meta-category'>{{ .Params.categories | humanize }}</p>
-                {{ range .Params.tags }}
-                  {{ $name := . }}
-                  <span>{{ .Render $name | humanize }}</span>
-                {{ end }}
+              <!-- <p class='item__meta-category'>{{ .Params.categories }}</p> -->
+              {{ range .Params.tags }}
+	                <span class='item__meta-tag'>{{ . }}</span>
+	            {{ end }}
 
             </div>
           </div>

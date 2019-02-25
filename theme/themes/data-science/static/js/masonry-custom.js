@@ -3,8 +3,8 @@ var macy = Macy({
     trueOrder: true,
     waitForImages: false,
     margin: {
-      x: 24,
-      y: 24
+      x: 25,
+      y: 25
     },
     columns: 3,
     breakAt: {
@@ -116,7 +116,8 @@ function filterTags(){
   else {
     for (var i = 0; i < options.length; i++) {
         if (options[i].value === val) {
-          const searchVal = options[i].value.toLowerCase()
+          const thisVal = options[i].value
+          const searchVal = thisVal === 'R' ? 'R' : thisVal.toLowerCase()
           const val = selectCat.value
 
           let selected = null

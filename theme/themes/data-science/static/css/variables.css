@@ -1,4 +1,12 @@
 :root {
-  --titleFont: 'Quicksand', sans-serif;
-  --bodyFont: 'Raleway', sans-serif;
+  --titleFont: 'Merriweather', serif;
+  --bodyFont: 'Noto Sans', sans-serif;
+  --annotationFont: 'Merriweather Sans', sans-serif;
+  --gray: #999999;
+  --grayDark: #2E343B;
+  --white: #FFFFFF;
+  --primary: #5C82FF;
+  --secondary: #645CFF;
+  --buttonBG: #E6E7F5;
+  --buttonDark: #404685
 }
