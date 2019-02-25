@@ -23,14 +23,29 @@
 
       <div class="filters-tags">
         <p class='tags-meta'>Filters</p>
-        <i class="fas fa-chevron-down"></i>
+        <i id='tag-chevron' class="fas fa-chevron-down"></i>
+
+        <div class='filters-selected'>
+        {{ range $key, $value := .Site.Taxonomies.tags }}
+          <p class="item__meta-tag tag-selected" data-tag="{{ $key | humanize }}" hidden="true">{{ $key | humanize }} <i class="fas fa-times"></i></p>
+        {{ end }}
+        </div>
       </div>
     </div>
   </nav>
 
+  <div class='filters-drawer'>
+    <div class='drawer-contents'>
+      {{ range $key, $value := .Site.Taxonomies.tags }}
+        <p class="item__meta-tag drawer-tag">{{ $key | humanize}} <i class="fas fa-plus"></i></p>
+      {{ end }}
+    </div>
+  </div>
+
   <div class="portfolio__grid">
     <!-- Change the range number here to affect the maximum number of items in your grid -->
     {{ range first 50 (where .Data.Pages "Type" "post") }}
+
       <div class="item {{ range .Params.categories }}{{ . }}{{ end }}" data-tags="{{ delimit .Params.tags ", " }}">
         <a class="item__link" href="{{ .Permalink }}">
           {{ if .Params.thumbnail }}

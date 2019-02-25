@@ -1,3 +1,23 @@
+let filterDrawerOpen = false;
+let filterButton = document.getElementsByClassName('filters-tags')[0]
+let filterDrawer = document.getElementsByClassName('filters-drawer')[0]
+let chevron = document.getElementById('tag-chevron')
+let selectedTags = document.getElementsByClassName('filters-selected')[0]
+let allTags = document.getElementsByClassName('drawer-tag')
+
+let tags = {}
+console.log({chevron})
+
+// setup filter button click
+filterButton.addEventListener('click', handleFilterDrawer)
+
+Array.from(allTags).forEach(function(element) {
+  console.log({element})
+  element.addEventListener('click', handleAddTag);
+});
+
+
+
 var macy = Macy({
     container: '.portfolio__grid',
     trueOrder: true,
@@ -57,9 +77,6 @@ function handleCatChange(){
     show(selected)
 
     rearrange()
-
-  // empty tag filter
-  const val = selectTag.value = ""
   }
 }
 
@@ -83,9 +100,17 @@ function searchEachPost(allPosts, search){
   [...allPosts].forEach((post) => {
       post.classList.remove('tagFound')
       let tags = getTags(post)
-      if (tags.includes(search)) post.classList.add('tagFound')
+      const success = search.every((val) => tags.includes(val))
+      if (success === true) post.classList.add('tagFound')
     });
 }
+
+// if (bodyVals.length){
+// const success = bodyVals.every((val) => d.bodyParts.includes(val))
+// const bp = d.bodyParts
+// return success}
+// else return false
+// }
 
 function finalizeFilters(){
   const unselected = document.querySelectorAll(`.item:not(.tagFound)`)
@@ -136,7 +161,89 @@ function filterTags(){
   }
 
 }
-console.log({selectTag})
+
+
+function handleFilterDrawer(){
+
+  filterDrawerOpen = !filterDrawerOpen
+
+  if(filterDrawerOpen === true) {
+    filterDrawer.classList.add('visible')
+    chevron.classList.remove('fa-chevron-down')
+    chevron.classList.add('fa-chevron-up')
+  }
+  if(filterDrawerOpen === false) {
+    filterDrawer.classList.remove('visible')
+    chevron.classList.remove('fa-chevron-up')
+    chevron.classList.add('fa-chevron-down')
+  }
+}
+
+function handleAddTag(){
+  let $btn = this
+  const active = $btn.classList.contains('is-active')
+  let sel = this.innerText.trim();
+  const searchVal = sel === 'R' ? 'R' : sel.toLowerCase()
+  const icon = this.getElementsByTagName('i')[0]
+
+  if (active === false){
+    icon.classList.remove('fa-plus')
+    icon.classList.add('fa-times')
+    $btn.classList.add('is-active')
+  } else if (active === true){
+    icon.classList.remove('fa-times')
+    icon.classList.add('fa-plus')
+    $btn.classList.remove('is-active')
+  }
+
+  tags[searchVal] = !active
+
+  console.log({tags, searchVal})
+
+  const tagVals = Object.keys(tags)
+    .filter(d => tags[d])
+    .map(d => d)
+
+  let tagToUnhide = document.querySelector(`[data-tag="${sel}"]`)
+  tagToUnhide.hidden = !tagToUnhide.hidden
+
+  let selected = null
+  if (singular == 'Post') {
+    selected = document.querySelectorAll('.post')
+  } else if (singular == 'Project'){
+    selected = document.querySelectorAll('.project')
+  } else selected = document.querySelectorAll('.item')
+  console.log({singular, selected})
+  searchEachPost(selected, tagVals)
+  finalizeFilters()
+
+  // push to tags Array
+  // tags.push(sel)
+  // console.log({tags})
+}
+
+function handleButtonClick(){
+  const $btn = d3.select(this)
+  const value = $btn.at('data-button')
+  const active = $btn.classed('is-active')
+  $btn.classed('is-active', !active)
+  bodySel[value.toLowerCase()] = !active
+
+  const bodyVals = Object.keys(bodySel)
+    .filter(d => bodySel[d])
+    .map(d => d)
+
+  $blocks.classed('is-highlighted', d => {
+    if (bodyVals.length){
+    const success = bodyVals.every((val) => d.bodyParts.includes(val))
+    const bp = d.bodyParts
+    return success}
+    else return false
+  })
+
+}
+
+
 
 // macy.runOnImageLoad(function (d) {
 //   const image = d.data.img
