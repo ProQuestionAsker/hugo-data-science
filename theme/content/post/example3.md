@@ -7,6 +7,7 @@ draft = "false"
 categories = ["post"]
 tags = ["d3.js", "data analysis"]
 thumbnail = "https://images.unsplash.com/photo-1539532647937-aa0660748f36?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=54240c1306f58a27550fbdc2c542f37c&auto=format&fit=crop&w=750&q=80"
+authors = ["Amber Thomas", "Jan Diehm"]
 +++
 
 Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life. One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.

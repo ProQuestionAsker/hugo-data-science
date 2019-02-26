@@ -7,13 +7,7 @@ draft = "false"
 categories = ["post"]
 tags = ["R", "data analysis"]
 image = "https://raw.githubusercontent.com/ProQuestionAsker/websiteSource/master/content/work/img/mainImages/2017-05-24_babyTiming.png"
-[[authors]]
-link = "https://twitter.com"
-name = "Amber Thomas"
-
-[[authors]]
-link = "https://twitter.com"
-name = "Jan Diehm"
+authors = ["Amber Thomas", "Jan Diehm"]
 
 [[buttons]]
 link = "https://pudding.cool"

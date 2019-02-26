@@ -11,16 +11,6 @@
         </select>
       </div>
 
-        <!-- <span class="filters-tag">add filters</span> -->
-        <!-- <input list="tags" id="tag-search" name="tag-search" placeholder="add a filter" onInput='filterTags()'>
-          <datalist id="tags">
-            {{ range $key, $value := .Site.Taxonomies.tags }}
-              <option>{{ $key | humanize }}</option>
-            {{ end }}
-          </datalist> -->
-        <!-- <input type="submit"> -->
-
-
       <div class="filters-tags">
         <div class='filters-click'>
           <p class='tags-meta'>Filters</p>
@@ -31,6 +21,10 @@
           <p class="item__meta-tag tag-selected" data-tag="{{ $key | humanize }}" hidden="true">{{ $key | humanize }} <i class="fas fa-times"></i></p>
         {{ end }}
         </div>
+      </div>
+
+      <div class="theme-toggle">
+        <i class="far fa-moon"></i>
       </div>
     </div>
   </nav>

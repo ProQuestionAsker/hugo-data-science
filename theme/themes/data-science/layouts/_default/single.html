@@ -4,47 +4,64 @@
 </div>
 
 <main>
-  <article class="post">
-    {{ if .Params.image }}
-      <img class="post__image" src="{{ .Params.image }}" alt="" class="img-responsive">
-    {{end}}
+  <div class='post-background'>
+    <article class="article">
 
-    <section class="post__info">
-      <h1 class="post__title">{{ .Title }}</h1>
-      <p class="post__desc">
-        {{ if .Description }}
-            {{ .Description }}
-        {{ else }}
-            {{ .Summary | plainify | safeHTML }}
+      <section class="post__info">
+        {{ range .Params.categories }}
+          <p class='item__meta-category single'>{{ . }}</p>
         {{ end }}
-      </p>
-      <div class="post__credentials">
-        {{if .Params.authors }}
-          <p class="post__author">
-            {{ range .Params.authors }}
-              <a href={{ .link }}><span class="post__author">{{ .name }}</span></a>
+
+        <h1 class="post__title">{{ .Title }}</h1>
+
+        {{ if .Params.buttons }}
+          <div class="post__links">
+            <p class='post__tags-meta'>View:</p>
+            {{ range .Params.buttons }}
+              <a href={{ .link }}><span class='item__meta-tag post-links'>{{ .text }}</span></a>
             {{ end }}
-          </p>
+          </div>
         {{ end }}
-        <p class="post__date">{{ .Date.Format "January 2, 2006" }}</p>
-      </div>
 
-      <hr>
-
-      {{ if .Params.buttons }}
-        <div class="post__buttons">
-          {{ range .Params.buttons }}
-            <a href={{ .link }}><span>{{ .text }}</span></a>
+        <div class='post__tags'>
+          <p class='post__tags-meta'>Tags:</p>
+          {{ range .Params.tags }}
+              <span class='item__meta-tag'>{{ . }}</span>
           {{ end }}
         </div>
-      {{ end }}
-    </section>
 
-    <section class="post__content">
-      {{ .Content }}
-    </section>
+        <div class="post__date">
+          <p>{{ .Date.Format "January 2, 2006" }} • {{ .ReadingTime }} min read</p>
+        </div>
 
-  </article>
-  {{ template "_internal/disqus.html" . }}
+        <div class='post__authors'>
+          {{- range .Params.authors }}
+            {{- with $.Site.GetPage "taxonomyTerm" (printf "authors/%s" (urlize .)) }}
+            <a href="https://twitter.com/{{ .Params.twitter }}" ref="author">
+              <div class='post__author'>
+                <img src="{{ .Params.photo }}" alt="" class='post__author-img'>
+                <div class='post__author-social'>
+                  <span class='post__author-name'>{{ .Params.name }}</span>
+                  <span class='post__author-twitter'><i class="fab fa-twitter"></i> @{{ .Params.twitter }}</span>
+                </div>
+              </div>
+              </a>
+            {{ end }}
+          {{ end }}
+        </div>
 
+        {{ if .Params.image }}
+          <img class="post__image" src="{{ .Params.image }}" alt="" class="img-responsive">
+        {{end}}
+
+
+      </section>
+
+      <section class="post__content">
+        {{ .Content }}
+      </section>
+
+    </article>
+    {{ template "_internal/disqus.html" . }}
+  </div>
 </main>

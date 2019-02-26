@@ -5,9 +5,11 @@
   --gray: #999999;
   --grayDark: #2E343B;
   --white: #FFFFFF;
+  --black: #000000;
   --primary: #5C82FF;
   --secondary: #645CFF;
   --buttonBG: #E6E7F5;
   --buttonDark: #404685;
-  --drawerBG: #6478BB
+  --drawerBG: #6478BB;
+  --portfolioBG: #F0F3FF;
 }

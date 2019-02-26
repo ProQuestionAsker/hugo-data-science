@@ -5,3 +5,12 @@ theme = "data-science"
 disqusShortname = "yourdiscussshortname"
 
 # sectionPagesMenu = "main"
+
+[params]
+  author = "Amber Thomas"
+
+
+[taxonomies]
+  author = "authors"
+  tag = "tags"
+  category = "categories"
