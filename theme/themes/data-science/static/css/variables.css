@@ -7,16 +7,36 @@
   --white: #FFFFFF;
   --black: #000000;
   --buttonDark: #404685;
-  --drawerBG: #F4BAB7;
+}
+
+body.light{
   --primary: #E5566E;
   --secondary: #1A2849;
   --tertiary: #8C93A4;
   --portfolioBG: #FFEEED;
+  --drawerBG: #F4BAB7;
   --cardBG: #FFF9F9;
+  --cardBGHover: #FFFFFF;
   --cardShadow: 0px 2px 3px rgba(137, 21, 35, 0.3);
   --cardShadowHover: 0px 10px 20px rgba(137, 21, 35, 0.2);
   --filterShadow: 0px 1px 3px rgba(81, 33, 33, 0.3);
   --tagShadow: 0px 1px 1px rgba(77, 21, 35, 0.3);
   --buttonBG: #FFFFFF;
   --introGradient: linear-gradient(180deg, #FFFFFF 0%, #FFEEED 100%)
+}
+
+body.dark{
+  --primary: #F7CAD1;
+  --secondary: #FFFFFF;
+  --tertiary: #A0A5B1;
+  --portfolioBG: #343B4B;
+  --drawerBG: #343C4F;
+  --cardBG: #424C63;
+  --cardBGHover: #60687C;
+  --cardShadow: 0px 2px 3px rgba(137, 21, 35, 0.3);
+  --cardShadowHover: 0px 10px 20px rgba(137, 21, 35, 0.2);
+  --filterShadow: 0px 1px 3px rgba(81, 33, 33, 0.3);
+  --tagShadow: 0px 1px 1px rgba(77, 21, 35, 0.3);
+  --buttonBG: #60687C;
+  --introGradient: linear-gradient(180deg, #3B4251 0%, #343B4B 100%)
 }

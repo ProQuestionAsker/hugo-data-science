@@ -18,9 +18,6 @@ Array.from(selectedTags).forEach(function(element) {
   element.addEventListener('click', handleAddTag);
 });
 
-
-
-
 var macy = Macy({
     container: '.portfolio__grid',
     trueOrder: true,
