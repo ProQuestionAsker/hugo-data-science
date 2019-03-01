@@ -1,12 +1,25 @@
 /* General Page Updates */
 body{
   margin: 0;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-font-smoothing: antialiased;
+  color: var(--secondary); /* fixes light font display in safari */
+}
+
+a, a:visited{
+  color: var(--secondary)
 }
 
 /* Changes the style of everything at the top of the homepage */
 
 .intro{
   min-height: 300px;
+  background: linear-gradient(180deg, #FFF7F6 0%, var(--portfolioBG) 100%);
+  display: flex;
+  align-items: center;
+}
+
+.intro-container{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,6 +31,7 @@ body{
 
 .introImage{
   max-width: 310px;
+  margin-right: 50px;
 }
 
 .intro-content{
@@ -49,7 +63,7 @@ body{
   font-size: 36px;
   font-family: var(--titleFont);
   font-weight: 900;
-  color: #5C82FF;
+  color: var(--secondary);
   margin: 0 0 30px 0;
   line-height: 1
 }
@@ -89,7 +103,7 @@ body{
   font-weight: 700;
   font-size: 16px;
   text-transform: capitalize;
-  background-color: Transparent;
+  background-color: transparent;
   background-repeat:no-repeat;
   border: none;
   cursor:pointer;
@@ -106,14 +120,14 @@ body{
 
 
 .twitter, .github, .envelope{
-  color: var(--gray);
+  color: var(--primary);
   margin: 0px 5px;
   transition: 300ms ease-in-out;
   font-size: 16px;
 }
 
 .intro-buttons a:hover{
-  color: #B2C4FF;
+  color: var(--secondary);
   transition: 300ms ease-in-out;
   cursor: pointer
 }
@@ -134,8 +148,8 @@ body{
   justify-content: center;
   align-items: center;
   height: 50px;
-  background-color: var(--primary);
-  box-shadow: 0px 2px 4px rgba(29, 62, 169, 0.3);
+  background-color: var(--cardBG);
+  box-shadow: var(--filterShadow);
 }
 
 .filters__content{
@@ -153,15 +167,22 @@ body{
   height: 2rem;
   font-size: 14px;
   line-height: 1.7;
-  background-color: #FFF;
+  background-color: var(--white);
   font-family: var(--bodyFont);
   font-weight: 700;
   padding: 0 5px;
   margin-right:	50px;
-  color: #000;
-  box-shadow: 0px 2px 4px rgba(29, 62, 169, 0.3);
+  color: var(--primary);
+  box-shadow: var(--cardShadow);
   outline: 0;
   border: 0;
+  transition: 300ms ease-in-out;
+}
+
+.filters-category select:hover{
+  background-color: var(--primary);
+  color: var(--white);
+  transition: 300ms ease-in-out;
 }
 
 .filters-tags{
@@ -179,29 +200,26 @@ body{
 
 .tags-meta{
   font-size: 16px;
-  text-shadow: 0px 1px 1px rgba(29, 62, 169, 0.8);
-  color: var(--white);
+  color: var(--primary);
   margin-right: 10px;
   font-family: var(--bodyFont);
 }
 
 .filters-tags i{
-  text-shadow: 0px 1px 1px rgba(29, 62, 169, 0.8);
-  color: var(--white)
+  color: var(--primary)
 }
 
 .theme-toggle{
   margin-left: auto;
-  text-shadow: 0px 1px 1px rgba(29, 62, 169, 0.8);
-  color: var(--white)
+  color: var(--primary)
 }
 
 .filters-drawer{
-  background-color: var(--buttonDark);
+  background-color: var(--drawerBG);
   position: -webkit-sticky; /* Safari */
   position: sticky;
   top: 50px;
-  z-index: 10;
+  z-index: 5;
   height: 0;
   overflow: hidden;
   transition: 300ms ease-in-out;
@@ -262,12 +280,13 @@ body{
   justify-content: flex-end;
   /* box-shadow: 0 40px 80px -40px rgba(0,0,0,1); */
   /* box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.15); */
-  box-shadow: 0px 2px 3px rgba(33, 51, 111, 0.3);
+  box-shadow: var(--cardShadow);
   /* border: 1px solid #E0E0E0; */
   cursor: pointer;
   border-radius: 5px;
   transform: translateY(15px);
   transition: transform 0.3s ease-in-out;
+  background-color: var(--cardBG);
 }
 
 .item.hidden{
@@ -275,12 +294,15 @@ body{
 }
 
 .item a{
-  text-decoration: none !important
+  text-decoration: none !important;
+  transition: 300ms;
 }
 
 .item a:hover{
-  box-shadow: 0px 10px 20px rgba(33, 51, 111, 0.3);
+  box-shadow: var(--cardShadowHover);
+  background-color: var(--white);
   transition: 300ms;
+  border-radius: 5px;
 }
 
 .item[data-macy-complete="1"] {
@@ -291,9 +313,7 @@ body{
 .item__details {
    z-index: 1;
    padding: 20px 15px;
-   background: #fff;
-   letter-spacing: 1px;
-   color: #000;
+   /* letter-spacing: 1px; */
    border-radius: 0 0 5px 5px
 }
 
@@ -308,6 +328,7 @@ body{
   font-family: var(--titleFont);
   font-size: 20px;
   font-weight: 700;
+  line-height: 25px;
 }
 
 .details__title h4{
@@ -317,19 +338,22 @@ body{
 .details__date{
   font-family: var(--annotationFont);
   font-size: 12px;
-  font-weight: 400;
-  color: var(--gray)
+  font-weight: 300;
+  color: var(--tertiary);
+  margin-top: 5px;
+  line-height: 20px;
 }
 
 .details__date p{
-  margin: 0.35rem 0 0.75rem 0
+  margin: 0;
 }
 
 .details__desc p{
   font-family: var(--bodyFont);
   font-size: 14px;
   font-weight: 400;
-  margin-bottom: 0;
+  margin: 10px 0 0 0;
+  line-height: 20px;
 }
 
 .item__meta{
@@ -341,7 +365,9 @@ body{
   font-size: 12px;
   color: var(--primary);
   text-transform: uppercase;
-  margin: 0 0 15px 0;
+  margin: 0 0 5px 0;
+  letter-spacing: 0.1em;
+  line-height: 20px;
 }
 
 .item__meta-category.single{
@@ -352,18 +378,18 @@ body{
   font-family: var(--bodyFont);
   font-size: 12px;
   font-weight: bold;
-  padding: 3px 6px;
+  padding: 3px 8px;
   border-radius: 5px;
   background-color: var(--buttonBG);
-  color: var(--buttonDark);
-  box-shadow: 0px 1px 1px rgba(33, 51, 111, 0.3);
+  color: var(--primary);
+  box-shadow: var(--tagShadow);
   transition: 300ms ease-in-out;
-  margin-right: 5px;
+  margin-right: 1px;
 }
 
 .item__meta-tag:hover{
   background-color: var(--primary);
-  color: var(--white);
+  color: var(--buttonBG);
   transition: 300ms ease-in-out
 }
 

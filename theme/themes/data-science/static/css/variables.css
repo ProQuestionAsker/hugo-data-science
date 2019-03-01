@@ -6,10 +6,17 @@
   --grayDark: #2E343B;
   --white: #FFFFFF;
   --black: #000000;
-  --primary: #5C82FF;
-  --secondary: #645CFF;
-  --buttonBG: #E6E7F5;
   --buttonDark: #404685;
-  --drawerBG: #6478BB;
-  --portfolioBG: #F0F3FF;
+  --drawerBG: #F4BAB7;
+  --primary: #E5566E;
+  --secondary: #1A2849;
+  --tertiary: #8C93A4;
+  --portfolioBG: #FFEEED;
+  --cardBG: #FFF9F9;
+  --cardShadow: 0px 2px 3px rgba(137, 21, 35, 0.3);
+  --cardShadowHover: 0px 10px 20px rgba(137, 21, 35, 0.2);
+  --filterShadow: 0px 1px 3px rgba(81, 33, 33, 0.3);
+  --tagShadow: 0px 1px 1px rgba(77, 21, 35, 0.3);
+  --buttonBG: #FFFFFF;
+  --introGradient: linear-gradient(180deg, #FFFFFF 0%, #FFEEED 100%)
 }
