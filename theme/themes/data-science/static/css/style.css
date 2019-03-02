@@ -652,7 +652,6 @@ hr{
 
 /* Footer */
 footer{
-  position: fixed;
   align-self: flex-end;
   bottom: 0;
   width: 100%;

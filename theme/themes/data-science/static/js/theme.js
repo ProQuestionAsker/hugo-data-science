@@ -3,6 +3,9 @@ let body = document.getElementsByTagName('body')[0]
 let lightDarkToggle = document.getElementsByClassName('theme-toggle')[0]
 let currentTime = new Date().getHours()
 let store = sessionStorage['theme']
+let image = document.getElementsByClassName('introImage')[0]
+console.log({image})
+
 if (store){
   const theme = sessionStorage['theme']
   body.classList.add(`${theme}`)
@@ -23,6 +26,10 @@ function handleThemeToggle(){
     body.classList.add('dark')
     icon.classList.remove('fa-moon')
     icon.classList.add('fa-circle')
+    if (image){
+      image.src = 'images/introImage-dark.svg'
+    }
+
   }
 
   else if (store === 'dark') {
@@ -31,6 +38,9 @@ function handleThemeToggle(){
     body.classList.add('light')
     icon.classList.remove('fa-circle')
     icon.classList.add('fa-moon')
+    if (image){
+      image.src = 'images/introImage-light.svg'
+    }
   }
   store = sessionStorage['theme']
   // sessionStorage['theme'] = lightDark
