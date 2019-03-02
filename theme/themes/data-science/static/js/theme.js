@@ -41,7 +41,9 @@ function handleThemeToggle(){
 function setTheme(){
   store = sessionStorage['theme']
 
-  if (currentTime < 6 || currentTime >= 21) sessionStorage['theme'] = 'dark'
+  if (currentTime < 6 || currentTime >= 21){
+    sessionStorage['theme'] = 'dark'
+  }
   else sessionStorage['theme'] = 'light'
   console.log({currentTime})
 

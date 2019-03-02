@@ -6,7 +6,7 @@ type = "post"
 draft = "false"
 categories = ["post"]
 tags = ["R", "data analysis"]
-image = "https://raw.githubusercontent.com/ProQuestionAsker/websiteSource/master/content/work/img/mainImages/2017-05-24_babyTiming.png"
+image = "https://images.unsplash.com/photo-1517844754203-2b8358f43256?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80"
 authors = ["Amber Thomas", "Jan Diehm"]
 
 [[buttons]]

@@ -6,7 +6,7 @@ type = "post"
 draft = "false"
 categories = ["project"]
 tags = ["d3.js", "data analysis"]
-thumbnail = "https://images.unsplash.com/photo-1539532647937-aa0660748f36?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=54240c1306f58a27550fbdc2c542f37c&auto=format&fit=crop&w=750&q=80"
+image = "https://images.unsplash.com/photo-1520514088096-4e085a5a7927?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
 authors = ["Amber Thomas"]
 +++
 
