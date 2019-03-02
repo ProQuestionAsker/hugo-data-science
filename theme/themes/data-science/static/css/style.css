@@ -411,6 +411,14 @@ a, a:visited{
   flex-direction: column;
 }
 
+.post-gradient{
+  background: var(--introGradient);
+  height: 300px;
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+}
+
 .article{
   max-width: 720px;
   margin: 0 auto 60px auto;
@@ -581,6 +589,7 @@ hr{
   align-items: center;
   justify-content: flex-start;
   background-color: transparent;
+  z-index: 5;
 }
 
 
@@ -619,15 +628,11 @@ hr{
   margin-right: 5px;
 }
 
-.goHome:hover{
-  background-color: var(--primary);
-  transition: 300ms ease-in-out
-}
 
-.goHome:hover a{
+/* .goHome:hover a{
   color: var(--buttonBG);
   transition: 300ms ease-in-out
-}
+} */
 
 .nav__simple .theme-toggle{
   flex-grow: 1;
@@ -637,6 +642,11 @@ hr{
 
 .nav__simple i{
   font-size: 12px;
+}
+
+.nav__simple i:hover{
+  color: var(--secondary);
+  transition: 300ms ease-in-out
 }
 
 .nav__title{
