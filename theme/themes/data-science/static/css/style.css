@@ -651,7 +651,13 @@ hr{
 }
 
 /* Footer */
-footer{
+.footer__home{
+  background-color: var(--portfolioBG);
+  min-height: 50px;
+}
+
+.footer__single{
+  position: fixed;
   align-self: flex-end;
   bottom: 0;
   width: 100%;
