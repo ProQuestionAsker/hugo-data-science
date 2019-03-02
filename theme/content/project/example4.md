@@ -6,7 +6,7 @@ type = "post"
 draft = "false"
 categories = ["project"]
 tags = ["d3.js", "data analysis"]
-image = "https://images.unsplash.com/photo-1520514088096-4e085a5a7927?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
+image = "https://mars.nasa.gov/system/resources/detail_files/4845_pia16239_c-full2.jpg"
 authors = ["Amber Thomas"]
 +++
 

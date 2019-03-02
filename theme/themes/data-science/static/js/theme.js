@@ -4,6 +4,8 @@ let lightDarkToggle = document.getElementsByClassName('theme-toggle')[0]
 let currentTime = new Date().getHours()
 let store = sessionStorage['theme']
 let image = document.getElementsByClassName('introImage')[0]
+let toggle = document.getElementsByClassName('theme-toggle')[0]
+let icon = toggle.getElementsByTagName('i')[0]
 console.log({image})
 
 if (store){
@@ -19,7 +21,6 @@ lightDarkToggle.addEventListener('click', handleThemeToggle)
 
 function handleThemeToggle(){
   console.log({store})
-  let icon = this.getElementsByTagName('i')[0]
   if (store === 'light') {
     sessionStorage['theme'] = 'dark'
     body.classList.remove('light')
