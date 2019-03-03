@@ -9,9 +9,14 @@ let store = sessionStorage['theme']
 // get current time for user
 const currentTime = new Date().getHours()
 
+// if there is already a value stored for theme
 if (store){
-  handleThemeToggle()
-} if (!store){
+  // and the value stored is light, keep it light
+  if (store === 'light') makeLight('newPage')
+  // and the value stored is dark, keep it dark
+  if (store === 'dark') makeDark('newPage')
+} 
+if (!store){
   setTheme()
 }
 
