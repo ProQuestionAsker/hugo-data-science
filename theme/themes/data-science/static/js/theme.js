@@ -147,20 +147,23 @@ function toggleDisqusComments(){
 //// Scroll to Top on Long Articles ///////
 ///////////////////////////////////////////
 
-window.onscroll = function(){handleScroll()}
+if (toTopButton){
+  window.onscroll = function(){handleScroll()}
 
-function handleScroll(){
-  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
-    toTopButton.classList.remove('is-hidden')
-  } else {
-    toTopButton.classList.add('is-hidden')
+  function handleScroll(){
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+      toTopButton.classList.remove('is-hidden')
+    } else {
+      toTopButton.classList.add('is-hidden')
+    }
   }
-}
 
-toTopButton.addEventListener('click', scrollToTop)
+  toTopButton.addEventListener('click', scrollToTop)
 
-// When the user clicks on the button, scroll to the top of the document
-function scrollToTop() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  // When the user clicks on the button, scroll to the top of the document
+  function scrollToTop() {
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+  }
+
 }
