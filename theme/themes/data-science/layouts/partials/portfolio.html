@@ -37,7 +37,10 @@
     </div>
   </div>
 
+  {{ partial "empty-grid.html" . }}
+
   <div class="portfolio__grid">
+
     <!-- Change the range number here to affect the maximum number of items in your grid -->
     {{ range first 50 (where .Data.Pages "Type" "post") }}
 
@@ -70,9 +73,7 @@
             </div>
             <div class="item__meta">
               <!-- <p class='item__meta-category'>{{ .Params.categories }}</p> -->
-              {{ range .Params.tags }}
-	                <span class='item__meta-tag card-tag' data-cardTag="{{.}}">{{ . }}</span>
-	            {{ end }}
+              <span class='card-tag' >{{ delimit .Params.tags ", " }}</span>
 
             </div>
           </div>

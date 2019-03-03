@@ -264,6 +264,56 @@ a, a:visited{
   margin-left: 5px;
 }
 
+.portfolio__grid-empty{
+  height: 300px;
+  max-width: 350px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.portfolio__grid-empty p{
+  font-family: var(--bodyFont);
+  text-align: center;
+}
+
+.portfolio__grid-empty.is-hidden{
+  height: 0px;
+}
+
+.portfolio__grid-full{
+  height: 75px;
+  max-width: 220px;
+  margin: 0 auto;
+  overflow: hidden;
+  position: absolute;
+  z-index: 10;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%, 0);
+  background-color: var(--cardBGHover);
+  padding: 1rem 3rem;
+  opacity: 0.98;
+  border-radius: 5px;
+  box-shadow: var(--cardShadowHover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 300ms ease-in-out;
+  pointer-events: none;
+}
+
+.portfolio__grid-full p{
+  font-family: var(--bodyFont);
+  font-size: 14px;
+  text-align: center;
+}
+
+.portfolio__grid-full.is-hidden{
+  opacity: 0;
+  transition: 300ms ease-in-out;
+}
+
+
 
 
 
@@ -298,7 +348,7 @@ a, a:visited{
   transition: 300ms;
 }
 
-.item a:hover{
+.item .item__link:hover{
   box-shadow: var(--cardShadowHover);
   background-color: var(--cardBGHover);
   transition: 300ms;
@@ -387,6 +437,7 @@ a, a:visited{
   box-shadow: var(--tagShadow);
   transition: 300ms ease-in-out;
   margin-right: 1px;
+  cursor: pointer;
 }
 
 .item__meta-tag:hover{
@@ -398,6 +449,12 @@ a, a:visited{
 .item__meta-tag.is-active{
   background-color: var(--white);
   color: var(--grayDark)
+}
+
+.card-tag{
+  font-family: var(--bodyFont);
+  color: var(--primary);
+  font-size: 12px;
 }
 
 /* Single Page Styling */

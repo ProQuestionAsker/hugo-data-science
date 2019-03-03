@@ -4,7 +4,8 @@ let filterDrawer = document.getElementsByClassName('filters-drawer')[0]
 let chevron = document.getElementById('tag-chevron')
 let selectedTags = document.getElementsByClassName('tag-selected')
 let allTags = document.getElementsByClassName('drawer-tag')
-let cardTags = document.getElementsByClassName('card-tag')
+const emptyMessage = document.getElementsByClassName('portfolio__grid-empty')[0]
+const fullFilters = document.getElementsByClassName('portfolio__grid-full')[0]
 const pageTag = sessionStorage['tag']
 
 
@@ -24,10 +25,6 @@ Array.from(allTags).forEach(function(element) {
 Array.from(selectedTags).forEach(function(element) {
   element.addEventListener('click', handleAddTag);
 });
-
-Array.from(cardTags).forEach(function(element) {
-  element.addEventListener('click', handleCardTag);
-})
 
 var macy = Macy({
     container: '.portfolio__grid',
@@ -149,6 +146,10 @@ function finalizeFilters(){
   const selected = document.getElementsByClassName(`item tagFound`)
   show(selected)
 
+  if (selected.length === 0){
+    emptyMessage.classList.remove('is-hidden')
+  } else emptyMessage.classList.add('is-hidden')
+
   rearrange()
 }
 
@@ -212,27 +213,6 @@ function handleSinglePageTag(){
   sessionStorage['tag'] = ''
 }
 
-function handleCardTag(){
-  const $btn = this
-  const sel = this.innerText.trim();
-  //const searchVal = sel === 'R' ? 'R' : sel.toLowerCase()
-  let active = null
-
-  tags[sel] = !active
-
-  let tagToUnhide = document.querySelector(`[data-tag="${sel}"]`)
-  tagToUnhide.hidden = !tagToUnhide.hidden
-  filterByTag()
-
-  // activate the correct tag in the drawer
-  let drawerBtn = document.querySelector(`[data-drawertag="${sel}"]`)
-  drawerBtn.classList.add('is-active')
-  const icon = drawerBtn.getElementsByTagName('i')[0]
-  icon.classList.remove('fa-plus')
-  icon.classList.add('fa-times')
-
-}
-
 
 function handleFilterDrawer(){
 
@@ -284,6 +264,8 @@ function handleAddTag(){
 
   tags[sel] = !active
 
+  console.log({tags})
+
   let tagToUnhide = document.querySelector(`[data-tag="${sel}"]`)
   tagToUnhide.hidden = !tagToUnhide.hidden
   filterByTag()
@@ -294,7 +276,8 @@ function filterByTag(){
     .filter(d => tags[d])
     .map(d => d)
 
-    //console.log({tagVals, tags})
+  if (tagVals.length > 3) fullFilters.classList.remove('is-hidden')
+  else fullFilters.classList.add('is-hidden')
 
   let selected = null
   if (singular == 'Post') {
@@ -311,7 +294,6 @@ function filterByTag(){
   })
 
   searchEachPost(selected, tagVals)
-  //finalizeFilters()
 }
 
 if (pageTag) handleSinglePageTag()
