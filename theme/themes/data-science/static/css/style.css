@@ -120,11 +120,12 @@ a, a:visited{
 }
 
 
-.twitter, .github, .envelope{
+.social-button{
   color: var(--primary);
   margin: 0px 5px;
   transition: 300ms ease-in-out;
   font-size: 16px;
+  text-decoration: none;
 }
 
 .intro-buttons a:hover{

@@ -8,11 +8,23 @@ preserveTaxonomyNames = true
 
 # sectionPagesMenu = "main"
 
-[params]
-  author = "Amber Thomas"
-
-
 [taxonomies]
   author = "authors"
   tag = "tags"
   category = "categories"
+
+[params]
+  author = "Amber Thomas"
+
+
+
+
+[params.social]
+  email = "AmberThomasMSc@gmail.com"
+  twitter = "https://twitter.com/ProQuesAsker"
+  github = "https://www.github.com/ProQuestionAsker"
+  linkedin = "https://www.linkedin.com/in/amberrthomas/"
+  stackoverflow = ""
+  facebook = ""
+  instagram = ""
+  googleplus = ""
