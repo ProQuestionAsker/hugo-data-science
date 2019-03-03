@@ -4,6 +4,7 @@ body{
   -webkit-font-smoothing: subpixel-antialiased;
   -webkit-font-smoothing: antialiased;
   color: var(--secondary); /* fixes light font display in safari */
+  background-color: var(--portfolioBG)
 }
 
 a, a:visited{
@@ -374,6 +375,14 @@ a, a:visited{
   border-radius: 5px 5px 0 0;
   /* filter: grayscale(100%) sepia(1) contrast(100%) hue-rotate(307deg);
   -webkit-filter: grayscale(100%) contrast(100%) sepia(1) hue-rotate(307deg); */
+}
+
+.post__image-credit{
+  font-family: var(--bodyFont);
+  font-size: 10px;
+  color: var(--tertiary);
+  margin: 5px 0;
+  font-style: italic;
 }
 
 .details__title{

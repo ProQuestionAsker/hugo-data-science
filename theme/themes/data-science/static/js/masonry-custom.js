@@ -276,9 +276,6 @@ function filterByTag(){
     .filter(d => tags[d])
     .map(d => d)
 
-  if (tagVals.length > 3) fullFilters.classList.remove('is-hidden')
-  else fullFilters.classList.add('is-hidden')
-
   let selected = null
   if (singular == 'Post') {
     selected = document.querySelectorAll('.post')
@@ -293,7 +290,13 @@ function filterByTag(){
       post.classList.remove('tagFound')
   })
 
-  searchEachPost(selected, tagVals)
+  // stop user from entering more than 3 filters
+  if (tagVals.length > 3) fullFilters.classList.remove('is-hidden')
+  else {
+    fullFilters.classList.add('is-hidden')
+    searchEachPost(selected, tagVals)
+  }
+
 }
 
 if (pageTag) handleSinglePageTag()
