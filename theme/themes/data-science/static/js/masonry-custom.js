@@ -4,7 +4,10 @@ let filterDrawer = document.getElementsByClassName('filters-drawer')[0]
 let chevron = document.getElementById('tag-chevron')
 let selectedTags = document.getElementsByClassName('tag-selected')
 let allTags = document.getElementsByClassName('drawer-tag')
+let cardTags = document.getElementsByClassName('card-tag')
 const pageTag = sessionStorage['tag']
+
+
 
 let tags = {}
 
@@ -21,6 +24,10 @@ Array.from(allTags).forEach(function(element) {
 Array.from(selectedTags).forEach(function(element) {
   element.addEventListener('click', handleAddTag);
 });
+
+Array.from(cardTags).forEach(function(element) {
+  element.addEventListener('click', handleCardTag);
+})
 
 var macy = Macy({
     container: '.portfolio__grid',
@@ -163,7 +170,7 @@ function filterTags(){
     for (var i = 0; i < options.length; i++) {
         if (options[i].value === val) {
           const thisVal = options[i].value
-          const searchVal = thisVal === 'R' ? 'R' : thisVal.toLowerCase()
+          //const searchVal = thisVal === 'R' ? 'R' : thisVal.toLowerCase()
           const val = selectCat.value
 
           let selected = null
@@ -172,7 +179,7 @@ function filterTags(){
           } else if (singular == 'Project'){
             selected = document.querySelectorAll('.project')
           } else selected = document.querySelectorAll('.item')
-          searchEachPost(selected, searchVal)
+          searchEachPost(selected, sel)
           finalizeFilters()
 
           break;
@@ -184,10 +191,10 @@ function filterTags(){
 
 function handleSinglePageTag(){
   const sel = sessionStorage['tag']
-  const searchVal = sel === 'R' ? 'R' : sel.toLowerCase()
+  //const searchVal = sel === 'R' ? 'R' : sel.toLowerCase()
   let active = null
 
-  tags[searchVal] = !active
+  tags[sel] = !active
 
   let tagToUnhide = document.querySelector(`[data-tag="${sel}"]`)
   tagToUnhide.hidden = !tagToUnhide.hidden
@@ -203,6 +210,27 @@ function handleSinglePageTag(){
 
   // clear session storage tag variable
   sessionStorage['tag'] = ''
+}
+
+function handleCardTag(){
+  const $btn = this
+  const sel = this.innerText.trim();
+  //const searchVal = sel === 'R' ? 'R' : sel.toLowerCase()
+  let active = null
+
+  tags[sel] = !active
+
+  let tagToUnhide = document.querySelector(`[data-tag="${sel}"]`)
+  tagToUnhide.hidden = !tagToUnhide.hidden
+  filterByTag()
+
+  // activate the correct tag in the drawer
+  let drawerBtn = document.querySelector(`[data-drawertag="${sel}"]`)
+  drawerBtn.classList.add('is-active')
+  const icon = drawerBtn.getElementsByTagName('i')[0]
+  icon.classList.remove('fa-plus')
+  icon.classList.add('fa-times')
+
 }
 
 
@@ -226,7 +254,7 @@ function handleAddTag(){
   const $btn = this
   const sel = this.innerText.trim();
   console.log({sel})
-  const searchVal = sel === 'R' ? 'R' : sel.toLowerCase()
+  //const searchVal = sel === 'R' ? 'R' : sel.toLowerCase()
   let active = null
 
   // if the button was in the drawer
@@ -254,7 +282,7 @@ function handleAddTag(){
     active = true
   }
 
-  tags[searchVal] = !active
+  tags[sel] = !active
 
   let tagToUnhide = document.querySelector(`[data-tag="${sel}"]`)
   tagToUnhide.hidden = !tagToUnhide.hidden

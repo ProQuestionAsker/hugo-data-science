@@ -3,6 +3,9 @@ const lightDarkToggle = document.getElementsByClassName('theme-toggle')[0]
 const icon = lightDarkToggle.getElementsByTagName('i')[0]
 const image = document.getElementsByClassName('introImage')[0]
 let pageTags = document.getElementsByClassName('post-tag')
+// does the user have a media query for preferring dark mode?
+const themePreference = matchMedia('(prefers-color-scheme: dark)');
+console.log(themePreference['matches'])
 
 // looking for any stored value in session storage of 'theme'
 let theme = sessionStorage['theme']
@@ -25,7 +28,11 @@ if (theme){
   if (theme === 'dark') makeDark('newPage')
 }
 if (!theme){
-  setTheme()
+  // if there is no value stored for theme
+  // and if the user has a preference in their web browser for dark theme
+  if (themePreference['matches'] === true) {
+    makeDark('first')
+  } else setTheme()
 }
 
 function setTheme(){

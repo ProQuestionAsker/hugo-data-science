@@ -4,6 +4,8 @@ title = "My New Hugo Site"
 theme = "data-science"
 disqusShortname = "yourdiscussshortname"
 
+preserveTaxonomyNames = true
+
 # sectionPagesMenu = "main"
 
 [params]
