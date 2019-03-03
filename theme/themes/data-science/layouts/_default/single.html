@@ -62,8 +62,8 @@
     </section>
 
     <div class='disqus'>
-      <button class='disqus-show'>Show Comments <i class="fas fa-comments"></i></button>
-      <div class='disqus-comments is-hidden'>
+      <button class='disqus-show'><span class="show-message">Show Comments</span> <i class="fas fa-comments"></i></button>
+      <div class='disqus-comments' hidden>
 
         {{ template "_internal/disqus.html" . }}
       </div>

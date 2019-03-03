@@ -436,7 +436,7 @@ a, a:visited{
   color: var(--primary);
   box-shadow: var(--tagShadow);
   transition: 300ms ease-in-out;
-  margin-right: 1px;
+  margin-right: 5px;
   cursor: pointer;
 }
 
@@ -479,7 +479,7 @@ a, a:visited{
 .article{
   max-width: 720px;
   margin: 0 auto 60px auto;
-  background-color: var(--cardBGHover);
+  background-color: var(--cardBG);
   padding: 40px 55px;
   border-radius: 5px;
   box-sizing: border-box;
@@ -751,12 +751,13 @@ hr{
   font-size: 16px;
   color: var(--primary);
   font-family: var(--bodyFont);
-  background-color: transparent;
+  background-color: var(--buttonBG);
   border: none;
   box-shadow: var(--tagShadow);
   border-radius: 5px;
   align-self: center;
   transition: 300ms ease-in-out;
+  margin-bottom: 15px;
 }
 
 .disqus-show:hover{
@@ -765,7 +766,13 @@ hr{
   transition: 300ms ease-in-out;
 }
 
-.disqus-comments.is-hidden{
-  height: 0px;
+.disqus-comments{
+  max-height: 600px;
   overflow: hidden;
+  transition: 300ms ease-in-out;
+}
+
+.disqus-comments.hidden{
+  max-height: 0;
+  transition: 300ms ease-in-out;
 }

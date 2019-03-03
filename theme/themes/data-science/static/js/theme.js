@@ -5,7 +5,8 @@ const image = document.getElementsByClassName('introImage')[0]
 let pageTags = document.getElementsByClassName('post-tag')
 // does the user have a media query for preferring dark mode?
 const themePreference = matchMedia('(prefers-color-scheme: dark)');
-console.log(themePreference['matches'])
+const disqus = document.getElementsByClassName('disqus-comments')[0]
+const disqusButton = document.getElementsByClassName('disqus-show')[0]
 
 // looking for any stored value in session storage of 'theme'
 let theme = sessionStorage['theme']
@@ -121,3 +122,21 @@ function handleStoreTag(){
 }
 
 // Now we'll just access this from the masonry-custom.js file
+
+///////////////////////////////////////////
+////// Show/Hide Disqus Elements //////////
+///////////////////////////////////////////
+
+if (disqus){
+  disqusButton.addEventListener('click', toggleDisqusComments)
+}
+
+function toggleDisqusComments(){
+  // toggle the is-hidden class
+  disqus.hidden = !disqus.hidden
+
+  const message = disqusButton.getElementsByTagName('span')[0]
+
+  if (disqus.hidden) message.textContent = 'Show Comments '
+  else message.textContent = 'Hide Comments '
+}
