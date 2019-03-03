@@ -10,21 +10,17 @@ let store = sessionStorage['theme']
 const currentTime = new Date().getHours()
 
 if (store){
-  body.classList.add(`${store}`)
+  handleThemeToggle()
 } if (!store){
   setTheme()
 }
 
 function setTheme(){
-  // if there is no stored theme
+  // this is run if there is no stored theme
 
   // if after 9PM or before 6AM, make dark mode
-  if (currentTime < 6 || currentTime >= 21){
-    makeDark('first')
-  }
-  else {
-    makeLight('first')
-  }
+  if (currentTime < 6 || currentTime >= 21) makeDark('first')
+  else makeLight('first')
 }
 
 function makeDark(load){
@@ -32,9 +28,7 @@ function makeDark(load){
   sessionStorage['theme'] = 'dark'
 
   // if this is not the first time the page loads, remove the light class
-  if (load != 'first') {
-    body.classList.remove('light')
-  }
+  if (load != 'first') body.classList.remove('light')
 
   // always add dark class, remove the (default) moon icon, and add the circle icon
   body.classList.add('dark')
@@ -42,9 +36,7 @@ function makeDark(load){
   icon.classList.add('fa-circle')
 
   // if this is run on a page where the image exists, switch to the dark one
-  if (image){
-    image.src = 'images/introImage-dark.svg'
-  }
+  if (image) image.src = 'images/introImage-dark.svg'
 
   // set the variable 'store' to be equal to the value stored in session storage
   store = sessionStorage['theme']
@@ -78,6 +70,7 @@ function makeLight(load){
 function handleThemeToggle(){
   if (store === 'light') makeDark('toggle')
   else if (store === 'dark') makeLight('toggle')
+
   // set the variable 'store' to be equal to the value stored in session storage
   store = sessionStorage['theme']
 }
