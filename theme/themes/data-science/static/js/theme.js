@@ -1,11 +1,13 @@
-let body = document.getElementsByTagName('body')[0]
-let lightDarkToggle = document.getElementsByClassName('theme-toggle')[0]
-let icon = lightDarkToggle.getElementsByTagName('i')[0]
+const body = document.getElementsByTagName('body')[0]
+const lightDarkToggle = document.getElementsByClassName('theme-toggle')[0]
+const icon = lightDarkToggle.getElementsByTagName('i')[0]
+const image = document.getElementsByClassName('introImage')[0]
+
+// looking for any stored value in session storage of 'theme'
 let store = sessionStorage['theme']
-let image = document.getElementsByClassName('introImage')[0]
 
 // get current time for user
-let currentTime = new Date().getHours()
+const currentTime = new Date().getHours()
 
 if (store){
   body.classList.add(`${store}`)
@@ -74,12 +76,8 @@ function makeLight(load){
 }
 
 function handleThemeToggle(){
-  if (store === 'light') {
-    makeDark('toggle')
-  }
-  else if (store === 'dark') {
-    makeLight('toggle')
-  }
+  if (store === 'light') makeDark('toggle')
+  else if (store === 'dark') makeLight('toggle')
   // set the variable 'store' to be equal to the value stored in session storage
   store = sessionStorage['theme']
 }
