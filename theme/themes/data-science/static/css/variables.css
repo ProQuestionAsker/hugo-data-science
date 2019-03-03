@@ -12,10 +12,10 @@
 body.light{
   --primary: #E5566E;
   --secondary: #1A2849;
-  --tertiary: #8C93A4;
+  --tertiary: #696E84;
   --portfolioBG: #FBE0DE;
   --drawerBG: #F4BAB7;
-  --cardBG: #FCF0F0;
+  --cardBG: #FEF9F8;
   --cardBGHover: #FFFFFF;
   --cardShadow: 0px 2px 3px rgba(137, 21, 35, 0.3);
   --cardShadowHover: 0px 10px 20px rgba(137, 21, 35, 0.2);
@@ -29,15 +29,15 @@ body.light{
 body.dark{
   --primary: #FFF9F9;
   --secondary: #FFF9F9;
-  --tertiary: #A0A5B1;
+  --tertiary: #C4C4CA;
   --portfolioBG: #252D3E;
-  --drawerBG: #343C4F;
-  --cardBG: #424C63;
-  --cardBGHover: #565E73;
+  --drawerBG: #1B2334;
+  --cardBG: #3D465C;
+  --cardBGHover: #4A5570;
   --cardShadow: 0px 2px 3px rgba(14, 11, 33, 0.3);
   --cardShadowHover: 0px 10px 20px rgba(14, 11, 33, 0.3);
   --filterShadow: 0px 1px 3px rgba(14, 11, 33, 0.3);
   --tagShadow: 0px 1px 1px rgba(77, 21, 35, 0.3);
-  --buttonBG: #565E73;
+  --buttonBG: #4A5570;
   --introGradient: linear-gradient(180deg, #3B4251 0%, var(--portfolioBG) 100%)
 }

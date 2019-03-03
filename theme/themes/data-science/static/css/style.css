@@ -430,7 +430,9 @@ a, a:visited{
   z-index: 5;
   position: relative;
   top: 80px;
+  overflow: hidden;
 }
+
 
 .post__image{
   width: 100%;
