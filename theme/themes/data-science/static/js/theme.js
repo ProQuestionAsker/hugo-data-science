@@ -2,21 +2,29 @@ const body = document.getElementsByTagName('body')[0]
 const lightDarkToggle = document.getElementsByClassName('theme-toggle')[0]
 const icon = lightDarkToggle.getElementsByTagName('i')[0]
 const image = document.getElementsByClassName('introImage')[0]
+let pageTags = document.getElementsByClassName('post-tag')
 
 // looking for any stored value in session storage of 'theme'
-let store = sessionStorage['theme']
+let theme = sessionStorage['theme']
+
+// looking for any tags selected from the non-home-page
+let tag = sessionStorage['tag']
+
+//////////////////////////////////////////////////
+///////// Light vs. Dark Theme Code //////////////
+//////////////////////////////////////////////////
 
 // get current time for user
 const currentTime = new Date().getHours()
 
 // if there is already a value stored for theme
-if (store){
+if (theme){
   // and the value stored is light, keep it light
-  if (store === 'light') makeLight('newPage')
+  if (theme === 'light') makeLight('newPage')
   // and the value stored is dark, keep it dark
-  if (store === 'dark') makeDark('newPage')
-} 
-if (!store){
+  if (theme === 'dark') makeDark('newPage')
+}
+if (!theme){
   setTheme()
 }
 
@@ -43,8 +51,8 @@ function makeDark(load){
   // if this is run on a page where the image exists, switch to the dark one
   if (image) image.src = 'images/introImage-dark.svg'
 
-  // set the variable 'store' to be equal to the value stored in session storage
-  store = sessionStorage['theme']
+  // set the variable 'theme' to be equal to the value stored in session storage
+  theme = sessionStorage['theme']
 }
 
 function makeLight(load){
@@ -68,18 +76,41 @@ function makeLight(load){
   // regardless of everything else, add 'light' class to the body
   body.classList.add('light')
 
-  // set the variable 'store' to be equal to the value stored in session storage
-  store = sessionStorage['theme']
+  // set the variable 'theme' to be equal to the value stored in session storage
+  theme = sessionStorage['theme']
 }
 
 function handleThemeToggle(){
-  if (store === 'light') makeDark('toggle')
-  else if (store === 'dark') makeLight('toggle')
+  if (theme === 'light') makeDark('toggle')
+  else if (theme === 'dark') makeLight('toggle')
 
-  // set the variable 'store' to be equal to the value stored in session storage
-  store = sessionStorage['theme']
+  // set the variable 'theme' to be equal to the value stored in session storage
+  theme = sessionStorage['theme']
 }
-
 
 // setup light dark theme toggle
 lightDarkToggle.addEventListener('click', handleThemeToggle)
+
+
+
+//////////////////////////////////////////////////
+////// Tag Filtering Between Pages Code //////////
+//////////////////////////////////////////////////
+
+// In this file, we only need to store the value of the tag that was clicked
+
+// Add event listener to each tag on the article page
+Array.from(pageTags).forEach(function(element) {
+  element.addEventListener('click', handleStoreTag);
+});
+
+function handleStoreTag(){
+  const $btn = this
+  const sel = this.innerText.trim();
+  const searchVal = sel === 'R' ? 'R' : sel.toLowerCase()
+
+  sessionStorage['tag'] = sel
+  window.location.replace('/')
+}
+
+// Now we'll just access this from the masonry-custom.js file

@@ -4,8 +4,12 @@ let filterDrawer = document.getElementsByClassName('filters-drawer')[0]
 let chevron = document.getElementById('tag-chevron')
 let selectedTags = document.getElementsByClassName('tag-selected')
 let allTags = document.getElementsByClassName('drawer-tag')
+const pageTag = sessionStorage['tag']
 
 let tags = {}
+
+// dropdown selections
+let singular = "All Categories"
 
 // setup filter button click
 filterButton.addEventListener('click', handleFilterDrawer)
@@ -55,9 +59,6 @@ function rearrange(){
 }
 
 const selectCat = document.getElementsByClassName("category-dropdown")[0]
-
-// dropdown selections
-let singular = "All Categories"
 
 function handleCatChange(){
   const val = selectCat.value
@@ -181,6 +182,29 @@ function filterTags(){
 
 }
 
+function handleSinglePageTag(){
+  const sel = sessionStorage['tag']
+  const searchVal = sel === 'R' ? 'R' : sel.toLowerCase()
+  let active = null
+
+  tags[searchVal] = !active
+
+  let tagToUnhide = document.querySelector(`[data-tag="${sel}"]`)
+  tagToUnhide.hidden = !tagToUnhide.hidden
+  filterByTag()
+
+  // activate the correct tag in the drawer
+  let drawerBtn = document.querySelector(`[data-drawertag="${sel}"]`)
+  drawerBtn.classList.add('is-active')
+  const icon = drawerBtn.getElementsByTagName('i')[0]
+  icon.classList.remove('fa-plus')
+  icon.classList.add('fa-times')
+
+
+  // clear session storage tag variable
+  sessionStorage['tag'] = ''
+}
+
 
 function handleFilterDrawer(){
 
@@ -201,6 +225,7 @@ function handleFilterDrawer(){
 function handleAddTag(){
   const $btn = this
   const sel = this.innerText.trim();
+  console.log({sel})
   const searchVal = sel === 'R' ? 'R' : sel.toLowerCase()
   let active = null
 
@@ -260,3 +285,5 @@ function filterByTag(){
   searchEachPost(selected, tagVals)
   //finalizeFilters()
 }
+
+if (pageTag) handleSinglePageTag()
