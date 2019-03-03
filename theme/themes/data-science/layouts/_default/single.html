@@ -3,6 +3,13 @@
   <div class='post-background'>
     <div class='post-gradient'></div>
     {{ partial "simple-nav.html" . }}
+
+    <div class='container-toTop'>
+      <div class='toTop-spacing'>
+        <div class='toTop-hidden'></div>
+        <a href="#" class="toTop"><i class="fas fa-chevron-up"></i></a>
+      </div>
+    </div>
   </div>
 
   <article class="article">
@@ -70,11 +77,10 @@
       {{ .Content }}
     </section>
 
-    {{ if .Params.buttons }}
+    {{ if .Params.disqus }}
     <div class='disqus'>
       <button class='disqus-show'><span class="show-message">Show Comments</span> <i class="fas fa-comments"></i></button>
       <div class='disqus-comments' hidden>
-
         {{ template "_internal/disqus.html" . }}
       </div>
     </div>

@@ -7,6 +7,7 @@ let pageTags = document.getElementsByClassName('post-tag')
 const themePreference = matchMedia('(prefers-color-scheme: dark)');
 const disqus = document.getElementsByClassName('disqus-comments')[0]
 const disqusButton = document.getElementsByClassName('disqus-show')[0]
+const toTopButton = document.getElementsByClassName('toTop')[0]
 
 // looking for any stored value in session storage of 'theme'
 let theme = sessionStorage['theme']
@@ -139,4 +140,27 @@ function toggleDisqusComments(){
 
   if (disqus.hidden) message.textContent = 'Show Comments '
   else message.textContent = 'Hide Comments '
+}
+
+
+///////////////////////////////////////////
+//// Scroll to Top on Long Articles ///////
+///////////////////////////////////////////
+
+window.onscroll = function(){handleScroll()}
+
+function handleScroll(){
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+    toTopButton.classList.remove('is-hidden')
+  } else {
+    toTopButton.classList.add('is-hidden')
+  }
+}
+
+toTopButton.addEventListener('click', scrollToTop)
+
+// When the user clicks on the button, scroll to the top of the document
+function scrollToTop() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }

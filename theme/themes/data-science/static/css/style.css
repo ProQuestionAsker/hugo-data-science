@@ -486,6 +486,50 @@ a, a:visited{
   z-index: 0;
 }
 
+.container-toTop{
+  z-index: 10;
+  height: 75%
+}
+
+.toTop-spacing{
+  max-width: 800px;
+  margin: 0 auto;
+  z-index: 10;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  bottom: 0;
+  height: 100%;
+}
+
+.toTop{
+  flex-grow: 1;
+  color: var(--primary);
+  z-index: 10;
+  font-size: 12px;
+  text-align: right;
+  max-height: 20px;
+  align-self: flex-end;
+  opacity: 1;
+  transition: 300ms ease-in-out;
+}
+
+.toTop:visited{
+  color: var(--primary);
+}
+
+.toTop.is-hidden{
+  opacity: 0;
+  transition: 300ms ease-in-out;
+  pointer-events: none;
+}
+
+.toTop-hidden{
+  height: 5px;
+  min-width: 10px;
+  flex-grow: 1;
+}
+
 .article{
   max-width: 720px;
   margin: 0 auto 200px auto;
