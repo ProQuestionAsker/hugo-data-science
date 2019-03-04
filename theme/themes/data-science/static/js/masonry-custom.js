@@ -1,14 +1,22 @@
 let filterDrawerOpen = false;
 let filterButton = document.getElementsByClassName('filters-click')[0]
 let filterDrawer = document.getElementsByClassName('filters-drawer')[0]
-let chevron = document.getElementById('tag-chevron')
+let chevronUp = document.getElementsByClassName('inline-svg-chevron-up')[0]
+let chevronDown = document.getElementsByClassName('inline-svg-chevron-down')[0]
 let selectedTags = document.getElementsByClassName('tag-selected')
 let allTags = document.getElementsByClassName('drawer-tag')
 const emptyMessage = document.getElementsByClassName('portfolio__grid-empty')[0]
 const fullFilters = document.getElementsByClassName('portfolio__grid-full')[0]
 const pageTag = sessionStorage['tag']
 
+chevronUp.hidden = true
 
+const tagTimes = document.getElementsByClassName('inline-svg-times')
+Array.from(tagTimes).forEach(function(element) {
+  if (element.parentNode.classList.contains('drawer-tag')){
+    element.hidden = true;
+  }
+});
 
 let tags = {}
 
@@ -204,9 +212,11 @@ function handleSinglePageTag(){
   // activate the correct tag in the drawer
   let drawerBtn = document.querySelector(`[data-drawertag="${sel}"]`)
   drawerBtn.classList.add('is-active')
-  const icon = drawerBtn.getElementsByTagName('i')[0]
-  icon.classList.remove('fa-plus')
-  icon.classList.add('fa-times')
+  const plus = drawerBtn.getElementsByClassName('inline-svg-plus')[0]
+  const times = drawerBtn.getElementsByClassName('inline-svg-times')[0]
+  plus.hidden = true
+  times.hidden = false
+
 
 
   // clear session storage tag variable
@@ -220,51 +230,51 @@ function handleFilterDrawer(){
 
   if(filterDrawerOpen === true) {
     filterDrawer.classList.add('visible')
-    chevron.classList.remove('fa-chevron-down')
-    chevron.classList.add('fa-chevron-up')
+    chevronUp.hidden = false
+    chevronDown.hidden = true
   }
   if(filterDrawerOpen === false) {
+    chevronUp.hidden = true
+    chevronDown.hidden = false
     filterDrawer.classList.remove('visible')
-    chevron.classList.remove('fa-chevron-up')
-    chevron.classList.add('fa-chevron-down')
   }
 }
 
 function handleAddTag(){
   const $btn = this
   const sel = this.innerText.trim();
-  console.log({sel})
   //const searchVal = sel === 'R' ? 'R' : sel.toLowerCase()
   let active = null
 
   // if the button was in the drawer
   if ($btn.classList.contains('drawer-tag')){
     active = $btn.classList.contains('is-active')
-    const icon = this.getElementsByTagName('i')[0]
+    const plus = this.getElementsByClassName('inline-svg-plus')[0]
+    const times = this.getElementsByClassName('inline-svg-times')[0]
 
     if (active === false){
-      icon.classList.remove('fa-plus')
-      icon.classList.add('fa-times')
+      plus.hidden = true
+      times.hidden = false
       $btn.classList.add('is-active')
     } else if (active === true){
-      icon.classList.remove('fa-times')
-      icon.classList.add('fa-plus')
+      plus.hidden = false
+      times.hidden = true
       $btn.classList.remove('is-active')
     }
   } else if ($btn.classList.contains('tag-selected')){
-    //const val = this.innerText.trim()
 
     const drawerBtn = document.querySelector(`[data-drawertag="${sel}"]`)
     drawerBtn.classList.remove('is-active')
-    const icon = drawerBtn.getElementsByTagName('i')[0]
-    icon.classList.remove('fa-times')
-    icon.classList.add('fa-plus')
+
+    const plus = drawerBtn.getElementsByClassName('inline-svg-plus')[0]
+    const times = drawerBtn.getElementsByClassName('inline-svg-times')[0]
+
+    times.hidden = true
+    plus.hidden = false
     active = true
   }
 
   tags[sel] = !active
-
-  console.log({tags})
 
   let tagToUnhide = document.querySelector(`[data-tag="${sel}"]`)
   tagToUnhide.hidden = !tagToUnhide.hidden
