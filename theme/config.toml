@@ -20,11 +20,16 @@ preserveTaxonomyNames = true
 
 
 [params.social]
-  email = "AmberThomasMSc@gmail.com"
+  email = "mailto:AmberThomasMSc@gmail.com"
   twitter = "https://twitter.com/ProQuesAsker"
   github = "https://www.github.com/ProQuestionAsker"
   linkedin = "https://www.linkedin.com/in/amberrthomas/"
   stackoverflow = ""
   facebook = ""
   instagram = ""
-  googleplus = ""
+  dribbble = ""
+  kaggle = ""
+  medium = ""
+  patreon = ""
+  pinterest = ""
+  youtube = ""
