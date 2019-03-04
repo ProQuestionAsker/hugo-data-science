@@ -7,7 +7,7 @@
     <div class='container-toTop'>
       <div class='toTop-spacing'>
         <div class='toTop-hidden'></div>
-        <a href="#" class="toTop">
+        <a href="#" class="toTop is-hidden">
           {{ partial "icon.html" "chevron-up" }}
         </a>
       </div>
@@ -56,7 +56,7 @@
               <img src="{{ .Params.photo }}" alt="" class='post__author-img'>
               <div class='post__author-social'>
                 <span class='post__author-name'>{{ .Params.name }}</span>
-                <span class='post__author-twitter'><i class="fab fa-twitter"></i> @{{ .Params.twitter }}</span>
+                <span class='post__author-twitter'>{{ partial "icon.html" "twitter"}} @{{ .Params.twitter }}</span>
               </div>
             </div>
             </a>

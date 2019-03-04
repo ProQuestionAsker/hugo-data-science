@@ -10,6 +10,9 @@ const themePreference = matchMedia('(prefers-color-scheme: dark)');
 const disqus = document.getElementsByClassName('disqus-comments')[0]
 const disqusButton = document.getElementsByClassName('disqus-show')[0]
 const toTopButton = document.getElementsByClassName('toTop')[0]
+const themeText = document.getElementsByClassName('theme-text')[0]
+const scrollText = document.getElementsByClassName('scroll-text')
+
 
 // looking for any stored value in session storage of 'theme'
 let theme = sessionStorage['theme']
@@ -64,6 +67,9 @@ function makeDark(load){
   // if this is run on a page where the image exists, switch to the dark one
   if (image) image.src = 'images/introImage-dark.svg'
 
+  // if this is a page with an indicator of what the button means, adjust the text
+  if (themeText) themeText.innerText = 'Enable Light Mode'
+
   // set the variable 'theme' to be equal to the value stored in session storage
   theme = sessionStorage['theme']
 }
@@ -88,6 +94,9 @@ function makeLight(load){
     if (image){
       image.src = 'images/introImage-light.svg'
     }
+
+    // if this is a page with an indicator of what the button means, adjust the text
+    if (themeText) themeText.innerText = 'Enable Dark Mode'
   }
   // regardless of everything else, add 'light' class to the body
   body.classList.add('light')
@@ -145,8 +154,8 @@ function toggleDisqusComments(){
 
   const message = disqusButton.getElementsByTagName('span')[0]
 
-  if (disqus.hidden) message.textContent = 'Show Comments '
-  else message.textContent = 'Hide Comments '
+  if (disqus.hidden) message.innerText = 'Show Comments '
+  else message.innerText = 'Hide Comments '
 }
 
 
@@ -160,8 +169,12 @@ if (toTopButton){
   function handleScroll(){
     if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
       toTopButton.classList.remove('is-hidden')
+      scrollText[0].classList.add('is-hidden')
+      scrollText[1].classList.add('is-hidden')
     } else {
       toTopButton.classList.add('is-hidden')
+      scrollText[0].classList.remove('is-hidden')
+      scrollText[1].classList.remove('is-hidden')
     }
   }
 
