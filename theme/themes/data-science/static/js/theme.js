@@ -1,6 +1,8 @@
 const body = document.getElementsByTagName('body')[0]
 const lightDarkToggle = document.getElementsByClassName('theme-toggle')[0]
-const icon = lightDarkToggle.getElementsByTagName('i')[0]
+const moonIcon = document.getElementsByClassName('inline-svg-moon')[0]
+const sunIcon = document.getElementsByClassName('inline-svg-sun')[0]
+//const icon = lightDarkToggle.getElementsByTagName('i')[0]
 const image = document.getElementsByClassName('introImage')[0]
 let pageTags = document.getElementsByClassName('post-tag')
 // does the user have a media query for preferring dark mode?
@@ -54,8 +56,10 @@ function makeDark(load){
 
   // always add dark class, remove the (default) moon icon, and add the circle icon
   body.classList.add('dark')
-  icon.classList.remove('fa-moon')
-  icon.classList.add('fa-circle')
+    moonIcon.hidden = true
+    sunIcon.hidden = false
+  // icon.classList.remove('fa-moon')
+  // icon.classList.add('fa-circle')
 
   // if this is run on a page where the image exists, switch to the dark one
   if (image) image.src = 'images/introImage-dark.svg'
@@ -73,8 +77,11 @@ function makeLight(load){
     // remove the dark tag
     body.classList.remove('dark')
     // remove the circle class and replace it with the (default) moon
-    icon.classList.remove('fa-circle')
-    icon.classList.add('fa-moon')
+    // icon.classList.remove('fa-circle')
+    // icon.classList.add('fa-moon')
+    console.log({moonIcon})
+    moonIcon.hidden = false
+    sunIcon.hidden = true
 
     // the light image is default,
     // so if this isn't the first load & there's an image, change to the light image

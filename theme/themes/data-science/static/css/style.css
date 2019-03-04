@@ -948,3 +948,19 @@ footer{
   transition: 300ms ease-in-out;
   margin: 15px auto;
 }
+
+
+
+
+.inline-svg {
+  display: inline-block;
+  height: 1.15rem;
+  width: 1.15rem;
+  top: 0.15rem;
+  right: 20px;
+  position: relative;
+}
+
+.inline-svg[hidden]{
+  display: none;
+}
