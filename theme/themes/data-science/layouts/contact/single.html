@@ -1,5 +1,5 @@
 {{ partial "header.html" . }}
-<main>
+<main class='contact'>
   <div class='post-background'>
     <div class='post-gradient'></div>
     {{ partial "simple-nav.html" . }}
@@ -18,16 +18,16 @@
       {{ .Content }}
     </section>
 
-
+    <div class='contact-form'>
     <form action="https://formspree.io/your@email.com" method="POST">
-      <label for="name">Your name: </label>
-      <input type="text" name="name" required="required" placeholder="here"><br>
-      <label for="email">Your email: </label>
-      <input type="email" name="_replyto" required="required" placeholder="here"><br>
-      <label for="message">Your message:</label><br>
-      <textarea rows="4" name="message" id="message" required="required" class="form-control" placeholder="I can't wait to read this!"></textarea>
+      <div class='contact-form-wrap'>
+        <input class="contact-name" type="text" name="name" required="required" placeholder="Your Name"><br>
+        <input class="contact-email" type="email" name="_replyto" required="required" placeholder="Your Email Address"><br>
+        <textarea rows="4" name="message" id="message" required="required" class="form-control" placeholder="Your Message"></textarea>
+        <input type="submit" value="Send" name="submit" class="contact-btn btn-primary btn-outline">
+      </div>
       <input type="hidden" name="_next" value="/html/thanks.html" />
-      <input type="submit" value="Send" name="submit" class="btn btn-primary btn-outline">
+
       <input type="hidden" name="_subject" value="Website message" />
       <input type="text" name="_gotcha" style="display:none" />
     </form>
