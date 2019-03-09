@@ -8,6 +8,8 @@ preserveTaxonomyNames = true
 
 # sectionPagesMenu = "main"
 
+
+
 [taxonomies]
   author = "authors"
   tag = "tags"
@@ -15,6 +17,13 @@ preserveTaxonomyNames = true
 
 [params]
   author = "Amber Thomas"
+
+  # options for highlight.js (version, additional languages, and theme)
+  highlight = true
+  highlightjsVersion = "9.15.6"
+  highlightjsCDN = "//cdnjs.cloudflare.com/ajax/libs"
+  highlightjsLang = ["r", "yaml", "javascript"]
+  highlightjsTheme = "github"
 
 
 

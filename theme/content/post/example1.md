@@ -8,7 +8,7 @@ categories = ["post"]
 tags = ["R", "data analysis"]
 image = ""
 authors = ["Amber Thomas", "Jan Diehm"]
-disqus = "false"
+disqus = "true"
 
 [[buttons]]
 link = "https://pudding.cool"

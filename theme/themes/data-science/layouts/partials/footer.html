@@ -20,4 +20,20 @@
 
   </div>
 
+
+
+{{ if $.Scratch.Get "highlight_enabled" }}
+  {{ $highVer := .Site.Params.highlightjsVersion }}
+  {{ $highCDN := (.Site.Params.highlightjsCDN | default "//cdn.bootcss.com")}}
+  {{ $highLang := .Site.Params.highlightjsLang }}
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js"></script>
+  {{ range .Site.Params.highlightjsLang }}
+    <script src="https:{{ $highCDN }}/highlight.js/{{ $highVer }}/languages/{{ . }}.min.js"></script>
+  {{ end }}
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+{{ end }}
+
+
   <script src="{{ "js/theme.js" | absURL }}"></script>
