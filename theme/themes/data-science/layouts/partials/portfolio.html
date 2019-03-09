@@ -3,7 +3,7 @@
   <nav class="portfolio__filters">
     <div class="filters__content">
       <div class="filters-category">
-        <select class="category-dropdown">
+        <select class="category-dropdown" aria-label="Filter posts by category">
           <option>All Categories</option>
             {{ range $key, $value := .Site.Taxonomies.categories }}
                 <option>{{ $key | humanize | pluralize }}</option>
@@ -12,11 +12,11 @@
       </div>
 
       <div class="filters-tags">
-        <div class='filters-click'>
+        <a class='filters-click' aria-label="Filter posts by tag">
           <p class='tags-meta'>Filters</p>
           {{ partial "icon.html" "chevron-down" }}
           {{ partial "icon.html" "chevron-up" }}
-        </div>
+        </a>
         <div class='filters-selected'>
         {{ range $key, $value := .Site.Taxonomies.tags }}
           <a class='item__meta-tag tag-selected' hidden="true" data-tag="{{ $key }}">
