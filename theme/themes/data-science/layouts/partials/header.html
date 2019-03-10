@@ -8,15 +8,23 @@
   <link rel="stylesheet" type="text/css" href="{{ "css/variables.css" | relURL }}">
   <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans|Merriweather:300,700|Noto+Sans:400,700" rel="stylesheet">
 
-  {{ $scr := .Scratch }}
-   <!-- Default to enabling highlighting, but allow the user to override it in .Params or .Site.Params.
-   Use $scr to store "highlight_enabled", so that we can read it again in footer.html. -->
-  {{ $scr.Set "highlight_enabled" true }}
-  {{ if isset .Params "highlight" }}
-    {{ $scr.Set "highlight_enabled" .Params.highlight }}
-  {{ else if isset .Site.Params "highlight" }}
-    {{ $scr.Set "highlight_enabled" .Site.Params.highlight }}
-        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/default.min.css">
+ <!-- Set a scratch value of highlight_enabled based on whether the "highlight" param is set to true or false -->
+
+  {{ if isset .Site.Params "highlight" }}
+    {{ .Scratch.Set "highlight_enabled" true }}
+    {{ $highVer := .Site.Params.highlightjsVersion }}
+    {{ $highCDN := (.Site.Params.highlightjsCDN | default "//cdn.bootcss.com")}}
+    {{ $custom := isset .Site.Params "custom"}}
+    {{ if $custom }}
+      <link rel="stylesheet" type="text/css" href="{{ "css/custom-light-syntax.css" | relURL }}">
+      <!-- <link rel="stylesheet" type="text/css" href="{{ "css/custom-dark-syntax.css" | relURL }}"> -->
+    {{ else }}
+      {{ $light := (.Site.Params.highlightjsThemeLight | default "github-gist")}}
+      <link rel="stylesheet" href="{{ $highCDN }}/highlight.js/{{ $highVer }}/styles/{{ $light }}.min.css">
+      {{ $dark := (.Site.Params.highlightjsThemeDark | default "atom-one-dark" )}}
+      <link rel="stylesheet" href="{{ $highCDN }}/highlight.js/{{ $highVer }}/styles/{{ $dark }}.min.css"></script>
+    {{ end }}
+
   {{ end }}
 
 </head>

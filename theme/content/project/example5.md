@@ -19,7 +19,7 @@ authors = ["Amber Thomas", "Jan Diehm"]
 Introduction
 ------------
 
-This is my first project on Kaggle and my first attempt at machine learning. I'll do my best to illustrate what I've down and the logic behind my actions, but feedback is very much welcome and appreciated!
+This is my first project on Kaggle and my `first attempt` at machine learning. I'll do my best to illustrate what I've down and the logic behind my actions, but feedback is very much welcome and appreciated!
 
 ### Loading Necessary Packages
 
@@ -197,3 +197,28 @@ full$Titles <- as.factor(full$Titles)
 These titles could certainly be condensed more, but for the time being, I am going to leave them separated as is.
 
 I have some thoughts about wanting to split up the names further to find family groups, but since many familial relationships (cousins, nieces/nephews, aunts/uncles, fiances, mistresses, in-laws, children with a nanny or close friends) aren't reported in any way in this data set, I'll have to think a little longer about the most appropriate way to find actual family groups.
+
+
+``` javascript
+function setTheme(){
+  // this is run if there is no stored theme
+
+  // if after 10PM or before 6AM, make dark mode
+  if (currentTime < 6 || currentTime >= 22) makeDark('first')
+  else makeLight('first')
+}
+```
+
+
+``` html
+<body>
+  <p class="paragraph">Text</p>
+</body>
+```
+
+``` css
+.thing {
+  background-color: red;
+  color: blue;
+}
+```

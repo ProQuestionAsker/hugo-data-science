@@ -23,8 +23,10 @@ preserveTaxonomyNames = true
   highlightjsVersion = "9.15.6"
   highlightjsCDN = "//cdnjs.cloudflare.com/ajax/libs"
   highlightjsLang = ["r", "yaml", "javascript"]
-  highlightjsThemeLight = "github"
-  highlightjsThemeDark = "dracula"
+  custom = true
+  highlightjsThemeLight = ""
+  highlightjsThemeDark = ""
+
 
 
 
