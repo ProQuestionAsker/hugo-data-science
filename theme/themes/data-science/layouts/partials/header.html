@@ -14,15 +14,15 @@
     {{ .Scratch.Set "highlight_enabled" true }}
     {{ $highVer := .Site.Params.highlightjsVersion }}
     {{ $highCDN := (.Site.Params.highlightjsCDN | default "//cdn.bootcss.com")}}
-    {{ $custom := isset .Site.Params "custom"}}
+    {{ $custom := .Site.Params.custom }}
     {{ if $custom }}
       <link rel="stylesheet" type="text/css" href="{{ "css/custom-light-syntax.css" | relURL }}" id="syntaxLight">
       <link rel="stylesheet alternate" type="text/css" href="{{ "css/custom-dark-syntax.css" | relURL }}" id="syntaxDark">
     {{ else }}
       {{ $light := (.Site.Params.highlightjsThemeLight | default "github-gist")}}
-      <link rel="stylesheet" href="{{ $highCDN }}/highlight.js/{{ $highVer }}/styles/{{ $light }}.min.css">
+      <link rel="stylesheet" href="{{ $highCDN }}/highlight.js/{{ $highVer }}/styles/{{ $light }}.min.css" id="syntaxLight">
       {{ $dark := (.Site.Params.highlightjsThemeDark | default "atom-one-dark" )}}
-      <link rel="stylesheet" href="{{ $highCDN }}/highlight.js/{{ $highVer }}/styles/{{ $dark }}.min.css"></script>
+      <link rel="stylesheet alternate" href="{{ $highCDN }}/highlight.js/{{ $highVer }}/styles/{{ $dark }}.min.css" id="syntaxDark"></script>
     {{ end }}
 
   {{ end }}
