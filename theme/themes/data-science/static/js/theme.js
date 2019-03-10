@@ -12,6 +12,10 @@ const disqusButton = document.getElementsByClassName('disqus-show')[0]
 const toTopButton = document.getElementsByClassName('toTop')[0]
 const themeText = document.getElementsByClassName('theme-text')[0]
 const scrollText = document.getElementsByClassName('scroll-text')
+const syntaxLight = document.getElementById('syntaxLight')
+const syntaxDark = document.getElementById('syntaxDark')
+
+console.log({syntaxLight, syntaxDark})
 
 
 // looking for any stored value in session storage of 'theme'
@@ -61,14 +65,16 @@ function makeDark(load){
   body.classList.add('dark')
     moonIcon.hidden = true
     sunIcon.hidden = false
-  // icon.classList.remove('fa-moon')
-  // icon.classList.add('fa-circle')
 
   // if this is run on a page where the image exists, switch to the dark one
   if (image) image.src = 'images/introImage-dark.svg'
 
   // if this is a page with an indicator of what the button means, adjust the text
   if (themeText) themeText.innerText = 'Enable Light Mode'
+
+  // switch to dark syntax highlighting
+  syntaxLight.rel = 'stylesheet alternate'
+  syntaxDark.rel = 'stylesheet'
 
   // set the variable 'theme' to be equal to the value stored in session storage
   theme = sessionStorage['theme']
@@ -83,9 +89,6 @@ function makeLight(load){
     // remove the dark tag
     body.classList.remove('dark')
     // remove the circle class and replace it with the (default) moon
-    // icon.classList.remove('fa-circle')
-    // icon.classList.add('fa-moon')
-    console.log({moonIcon})
     moonIcon.hidden = false
     sunIcon.hidden = true
 
@@ -97,6 +100,11 @@ function makeLight(load){
 
     // if this is a page with an indicator of what the button means, adjust the text
     if (themeText) themeText.innerText = 'Enable Dark Mode'
+
+    // light syntax highlighting is default, so if this isn't the first load, change to light highlighting
+    syntaxDark.rel = 'stylesheet alternate'
+    syntaxLight.rel = 'stylesheet'
+
   }
   // regardless of everything else, add 'light' class to the body
   body.classList.add('light')
