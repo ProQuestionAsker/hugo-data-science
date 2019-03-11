@@ -716,12 +716,13 @@ hr{
 
 .nav__simple{
   height: 50px;
-  width: 100%;
+  width: 98%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   background-color: transparent;
   z-index: 5;
+  padding: 0 0.5rem;
 }
 
 
@@ -884,6 +885,11 @@ footer{
   align-self: center;
   transition: 300ms ease-in-out;
   margin-bottom: 15px;
+}
+
+.disqus-show svg{
+  height: 1em;
+  width: 1em;
 }
 
 .disqus-show:hover{

@@ -81,7 +81,7 @@
 
     {{ if .Params.disqus }}
     <div class='disqus'>
-      <button class='disqus-show'><span class="show-message">Show Comments</span> <i class="fas fa-comments"></i></button>
+      <button class='disqus-show'><span class="show-message">Show Comments</span> {{ partial "icon.html" "bubbles" }}</button>
       <div class='disqus-comments' hidden>
         {{ template "_internal/disqus.html" . }}
       </div>
