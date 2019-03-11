@@ -257,12 +257,30 @@ pre {
 .drawer-contents{
   max-width: 800px;
   margin: 12px auto 0 auto;
-  display: flex;
-  flex-direction: row;
+  position: relative;
 }
 
-.drawer-contents i{
-  margin-left: 5px;
+
+
+.drawer-gradient{
+  position: absolute;
+  width: 100%;
+  height: 30px;
+  background: var(--drawerGradient);
+  pointer-events: none;
+}
+
+.drawer-tags{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.drawer-tags::-webkit-scrollbar {
+  display: none;
 }
 
 /* .filters-drawer.visible .drawer-contents{
@@ -474,9 +492,10 @@ pre {
   color: var(--primary);
   box-shadow: var(--tagShadow);
   transition: 300ms ease-in-out;
-  margin-right: 5px;
+  margin: 2px 5px 2px 0;
   cursor: pointer;
   border: none;
+  flex: 0 0 auto;
 }
 
 .item__meta-tag[hidden]{

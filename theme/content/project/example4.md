@@ -5,7 +5,7 @@ description = "Are more babies born after storms? Or superbowl wins?"
 type = "post"
 draft = "false"
 categories = ["project"]
-tags = ["d3.js", "data analysis"]
+tags = ["flexbox", "data analysis"]
 image = "https://mars.nasa.gov/system/resources/detail_files/4845_pia16239_c-full2.jpg"
 authors = ["Amber Thomas"]
 +++

@@ -5,7 +5,7 @@ description = "Are more babies born after storms? Or superbowl wins?"
 type = "post"
 draft = "false"
 categories = ["project"]
-tags = ["d3.js", "data viz"]
+tags = ["test", "data viz"]
 image = "https://images.unsplash.com/photo-1541188495357-ad2dc89487f4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1502&q=80"
 
 authors = ["Amber Thomas", "Jan Diehm"]

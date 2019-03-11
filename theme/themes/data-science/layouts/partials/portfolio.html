@@ -38,7 +38,10 @@
   </div>
 
   <div class='filters-drawer' hidden>
+
     <div class='drawer-contents'>
+      <div class='drawer-gradient'></div>
+      <div class='drawer-tags'>
       {{ range $key, $value := .Site.Taxonomies.tags }}
         <button class='item__meta-tag drawer-tag' data-drawertag="{{ $key }}" aria-pressed="false" aria-label="Filter by posts tagged {{ $key }}">
           <p class="tag-text drawer-tag">
@@ -48,6 +51,7 @@
           {{ partial "icon.html" "times" }}
         </button>
       {{ end }}
+      </div>
     </div>
   </div>
 

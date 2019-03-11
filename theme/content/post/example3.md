@@ -5,7 +5,7 @@ description = "Are more babies born after storms? Or superbowl wins?"
 type = "post"
 draft = "false"
 categories = ["post"]
-tags = ["d3.js", "data analysis"]
+tags = ["purrr", "data analysis", "else", "R"]
 image = "https://images.unsplash.com/photo-1486746805218-28ede09ffa00?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80"
 imageAlt = "description of image"
 imageCredit = "Mikaela Shannon"

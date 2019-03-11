@@ -5,7 +5,7 @@ description = "Are more babies born after storms? Or superbowl wins? We investig
 type = "post"
 draft = "false"
 categories = ["post"]
-tags = ["R", "data analysis"]
+tags = ["else", "data analysis"]
 image = "https://images.unsplash.com/photo-1515688594390-b649af70d282?ixlib=rb-1.2.1&auto=format&fit=crop&w=1390&q=80"
 authors = ["Amber Thomas", "Jan Diehm"]
 disqus = "false"

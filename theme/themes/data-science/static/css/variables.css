@@ -23,7 +23,8 @@ body.light{
   --tagShadow: 0px 1px 1px rgba(77, 21, 35, 0.3);
   --buttonBG: #FFFFFF;
   --buttonBGHover: #E5566E;
-  --introGradient: linear-gradient(180deg, #FDF0EF 0%, var(--portfolioBG) 100%)
+  --introGradient: linear-gradient(180deg, #FDF0EF 0%, var(--portfolioBG) 100%);
+  --drawerGradient: linear-gradient(270deg, #F4BAB7 0%, rgba(244, 186, 183, 0) 10%, rgba(244, 186, 183, 0) 100%)
 }
 
 body.dark{
