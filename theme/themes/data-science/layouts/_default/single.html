@@ -36,7 +36,7 @@
       <div class='post__tags'>
         <p class='post__tags-meta'>Tags:</p>
         {{ range .Params.tags }}
-            <span class='item__meta-tag post-tag'>{{ . }}</span>
+            <button class='item__meta-tag post-tag' aria-label='Back to all posts filtered by {{ . }}'>{{ . }}</button>
         {{ end }}
       </div>
       {{ end }}

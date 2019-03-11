@@ -37,7 +37,7 @@
     </div>
   </div>
 
-  <div class='filters-drawer'>
+  <div class='filters-drawer' hidden>
     <div class='drawer-contents'>
       {{ range $key, $value := .Site.Taxonomies.tags }}
         <button class='item__meta-tag drawer-tag' data-drawertag="{{ $key }}" aria-pressed="false" aria-label="Filter by posts tagged {{ $key }}">

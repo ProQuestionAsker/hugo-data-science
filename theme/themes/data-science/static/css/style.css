@@ -234,8 +234,8 @@ pre {
   width: 50px;
 }
 
-.theme-toggle svg{
-  width: 1.5em;
+.theme-toggle .inline-svg{
+  width: 2em;
 }
 
 .filters-drawer{
@@ -615,6 +615,10 @@ pre {
   align-items: center;
 }
 
+.post__tags a:focus{
+  border: 1px solid var(--primary)
+}
+
 .post__tags-meta{
   color: var(--tertiary);
   margin: 0 10px 0 0;
@@ -798,6 +802,7 @@ hr{
   flex-grow: 1;
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 }
 
 .single-toggle{
