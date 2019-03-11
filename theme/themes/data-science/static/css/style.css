@@ -11,6 +11,12 @@ a, a:visited{
   color: var(--secondary)
 }
 
+pre {
+  white-space: pre-wrap;
+  overflow-y: auto;
+  max-height: 75vh;
+ }
+
 /* Changes the style of everything at the top of the homepage */
 
 .intro{
@@ -768,6 +774,11 @@ hr{
   text-decoration: none;
   color: var(--secondary);
   transition: 300ms ease-in-out;
+  margin-right: 5px;
+  display: flex;
+}
+
+.goHome svg{
   margin-right: 5px;
 }
 
