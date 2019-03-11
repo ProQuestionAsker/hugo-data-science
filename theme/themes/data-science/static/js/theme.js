@@ -72,9 +72,14 @@ function makeDark(load){
   // if this is a page with an indicator of what the button means, adjust the text
   if (themeText) themeText.innerText = 'Enable Light Mode'
 
+  // Switch aria label to be accurate
+  if (!themeText) lightDarkToggle.setAttribute('aria-label', 'Enable Light Mode')
+
   // switch to dark syntax highlighting
   syntaxLight.rel = 'stylesheet alternate'
   syntaxDark.rel = 'stylesheet'
+
+
 
   // set the variable 'theme' to be equal to the value stored in session storage
   theme = sessionStorage['theme']
@@ -100,6 +105,9 @@ function makeLight(load){
 
     // if this is a page with an indicator of what the button means, adjust the text
     if (themeText) themeText.innerText = 'Enable Dark Mode'
+
+    // Switch aria label to be accurate
+    if (!themeText) lightDarkToggle.setAttribute('aria-label', 'Enable Dark Mode')
 
     // light syntax highlighting is default, so if this isn't the first load, change to light highlighting
     syntaxDark.rel = 'stylesheet alternate'

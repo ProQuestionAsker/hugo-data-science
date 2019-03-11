@@ -234,11 +234,13 @@ function handleFilterDrawer(){
     filterDrawer.classList.add('visible')
     chevronUp.hidden = false
     chevronDown.hidden = true
+    filterDrawer.hidden = false
   }
   if(filterDrawerOpen === false) {
     chevronUp.hidden = true
     chevronDown.hidden = false
     filterDrawer.classList.remove('visible')
+    filterDrawer.hidden = true
   }
 }
 

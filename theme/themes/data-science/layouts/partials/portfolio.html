@@ -1,6 +1,6 @@
 <section class='portfolio'>
 
-  <nav class="portfolio__filters">
+  <div class="portfolio__filters">
     <div class="filters__content">
       <div class="filters-category">
         <select class="category-dropdown" aria-label="Filter posts by category">
@@ -29,13 +29,13 @@
         </div>
       </div>
 
-      <div class="theme-toggle">
+      <button class="theme-toggle" aria-label="Enable Dark Mode">
         {{ partial "icon.html" "moon" }}
         {{ partial "icon.html" "sun" }}
         <!--<i class="far fa-moon"></i>-->
-      </div>
+      </button>
     </div>
-  </nav>
+  </div>
 
   <div class='filters-drawer'>
     <div class='drawer-contents'>

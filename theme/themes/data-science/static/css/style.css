@@ -187,17 +187,14 @@ a, a:visited{
   transition: 300ms ease-in-out;
 }
 
+.filters-category select:focus{
+  border: 1px solid var(--primary)
+}
+
 .filters-tags{
   display: flex;
   flex-direction: row;
   align-items: baseline;
-}
-
-.filters-tags button {
-  background-color: transparent;
-  border: none;
-  height: 100%;
-  padding: 0;
 }
 
 .filters-click{
@@ -205,6 +202,10 @@ a, a:visited{
   flex-direction: row;
   align-items: center;
   cursor: pointer;
+  background-color: transparent;
+  border: none;
+  height: 100%;
+  padding: 0;
 }
 
 .tags-meta{
@@ -220,7 +221,15 @@ a, a:visited{
 
 .theme-toggle{
   margin-left: auto;
-  color: var(--primary)
+  color: var(--primary);
+  background-color: transparent;
+  border: none;
+  height: 50px;
+  width: 50px;
+}
+
+.theme-toggle svg{
+  width: 1.5em;
 }
 
 .filters-drawer{
@@ -268,6 +277,8 @@ a, a:visited{
 
 .tag-selected{
   margin-right: 5px;
+  border: none;
+  background: transparent;
 }
 
 .tag-selected i{
