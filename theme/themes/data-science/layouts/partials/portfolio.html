@@ -12,19 +12,19 @@
       </div>
 
       <div class="filters-tags">
-        <a class='filters-click' aria-label="Filter posts by tag">
+        <button class='filters-click' aria-label="Filter posts by tag" aria-expanded="false">
           <p class='tags-meta'>Filters</p>
           {{ partial "icon.html" "chevron-down" }}
           {{ partial "icon.html" "chevron-up" }}
-        </a>
+        </button>
         <div class='filters-selected'>
         {{ range $key, $value := .Site.Taxonomies.tags }}
-          <a class='item__meta-tag tag-selected' hidden="true" data-tag="{{ $key }}">
+          <button class='item__meta-tag tag-selected' hidden="true" data-tag="{{ $key }}" aria-pressed="true" aria-label="Filter by posts tagged {{ $key }}">
             <p class="tag-text">
               {{ $key }}
             </p>
             {{ partial "icon.html" "times" }}
-          </a>
+          </button>
         {{ end }}
         </div>
       </div>
@@ -40,13 +40,13 @@
   <div class='filters-drawer'>
     <div class='drawer-contents'>
       {{ range $key, $value := .Site.Taxonomies.tags }}
-        <a class='item__meta-tag drawer-tag' data-drawertag="{{ $key }}">
+        <button class='item__meta-tag drawer-tag' data-drawertag="{{ $key }}" aria-pressed="false" aria-label="Filter by posts tagged {{ $key }}">
           <p class="tag-text drawer-tag">
             {{ $key }}
           </p>
           {{ partial "icon.html" "plus" }}
           {{ partial "icon.html" "times" }}
-        </a>
+        </button>
       {{ end }}
     </div>
   </div>

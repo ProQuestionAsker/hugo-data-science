@@ -212,6 +212,7 @@ function handleSinglePageTag(){
   // activate the correct tag in the drawer
   let drawerBtn = document.querySelector(`[data-drawertag="${sel}"]`)
   drawerBtn.classList.add('is-active')
+  drawerBtn.setAttribute('aria-pressed', true)
   const plus = drawerBtn.getElementsByClassName('inline-svg-plus')[0]
   const times = drawerBtn.getElementsByClassName('inline-svg-times')[0]
   plus.hidden = true
@@ -227,6 +228,7 @@ function handleSinglePageTag(){
 function handleFilterDrawer(){
 
   filterDrawerOpen = !filterDrawerOpen
+  filterButton.setAttribute('aria-expanded', filterDrawerOpen)
 
   if(filterDrawerOpen === true) {
     filterDrawer.classList.add('visible')
@@ -256,15 +258,19 @@ function handleAddTag(){
       plus.hidden = true
       times.hidden = false
       $btn.classList.add('is-active')
+      $btn.setAttribute('aria-pressed', true)
     } else if (active === true){
       plus.hidden = false
       times.hidden = true
       $btn.classList.remove('is-active')
+      $btn.setAttribute('aria-pressed', false)
     }
   } else if ($btn.classList.contains('tag-selected')){
 
     const drawerBtn = document.querySelector(`[data-drawertag="${sel}"]`)
     drawerBtn.classList.remove('is-active')
+
+    drawerBtn.setAttribute('aria-pressed', false)
 
     const plus = drawerBtn.getElementsByClassName('inline-svg-plus')[0]
     const times = drawerBtn.getElementsByClassName('inline-svg-times')[0]
@@ -278,6 +284,7 @@ function handleAddTag(){
 
   let tagToUnhide = document.querySelector(`[data-tag="${sel}"]`)
   tagToUnhide.hidden = !tagToUnhide.hidden
+  tagToUnhide.setAttribute('aria-pressed', !tagToUnhide.hidden)
   filterByTag()
 }
 

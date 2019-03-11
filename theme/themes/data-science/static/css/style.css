@@ -159,7 +159,7 @@ a, a:visited{
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: baseline;
+  align-items: center;
   padding: 0 0.5rem
 }
 
@@ -191,6 +191,13 @@ a, a:visited{
   display: flex;
   flex-direction: row;
   align-items: baseline;
+}
+
+.filters-tags button {
+  background-color: transparent;
+  border: none;
+  height: 100%;
+  padding: 0;
 }
 
 .filters-click{
@@ -452,6 +459,7 @@ a, a:visited{
   transition: 300ms ease-in-out;
   margin-right: 5px;
   cursor: pointer;
+  border: none;
 }
 
 .item__meta-tag[hidden]{
