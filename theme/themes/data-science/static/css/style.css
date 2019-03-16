@@ -4,7 +4,7 @@ body{
   -webkit-font-smoothing: subpixel-antialiased;
   -webkit-font-smoothing: antialiased;
   color: var(--secondary); /* fixes light font display in safari */
-  background-color: var(--portfolioBG)
+  background-color: var(--portfolioBG);
 }
 
 a, a:visited{
@@ -34,12 +34,32 @@ pre {
   flex-direction: row;
   max-width: 800px;
   margin: 0 auto;
+  flex-wrap: wrap;
 }
 
-.introImage{
-  max-width: 310px;
-  margin-right: 50px;
+@media(max-width: 730px){
+  .introImage{
+    max-width: 310px;
+    margin-bottom: 25px;
+  }
+
+  .intro-container{
+    margin-bottom: 25px;
+  }
 }
+
+@media(min-width: 730px){
+  .introImage{
+    max-width: 310px;
+    margin-right: 50px;
+  }
+
+  .intro-container{
+    margin-bottom: 0px;
+  }
+}
+
+
 
 .intro-content{
   max-width: 800px;
@@ -144,7 +164,7 @@ pre {
 .portfolio{
   display: block;
   position: relative;
-  background-color: var(--portfolioBG)
+  background-color: var(--portfolioBG);
 }
 
 .portfolio__filters{
@@ -364,10 +384,15 @@ pre {
 
 /* Changes the styling of the portfolio items */
 
+.portfolio__contents{
+  padding: 0.5rem;
+}
+
 .portfolio__grid{
   max-width: 800px;
   margin: 30px auto 0 auto;
 }
+
 
 .item{
   display: flex;
@@ -556,6 +581,7 @@ pre {
   justify-content: flex-end;
   bottom: 0;
   height: 100%;
+  padding: 0 0.5rem;
 }
 
 .toTop{
@@ -590,7 +616,6 @@ pre {
   max-width: 720px;
   margin: 0 auto 200px auto;
   background-color: var(--cardBG);
-  padding: 40px 55px;
   border-radius: 5px;
   box-sizing: border-box;
   box-shadow: var(--cardShadow);
@@ -598,6 +623,18 @@ pre {
   position: relative;
   top: 80px;
   overflow: hidden;
+}
+
+@media(min-width: 730px){
+  .article{
+    padding: 40px 55px;
+  }
+}
+
+@media(max-width: 730px){
+  .article{
+    padding: 40px 25px;
+  }
 }
 
 
@@ -632,6 +669,7 @@ pre {
   display: flex;
   flex-direction: row;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .post__tags a:focus{
@@ -782,10 +820,11 @@ hr{
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  padding: 0 0.5rem;
 }
 
 .goHome{
-  flex-grow: 1;
+  flex: 1;
   display: flex;
   align-items: center;
   color: var(--secondary);
@@ -816,12 +855,16 @@ hr{
   color: var(--buttonBG);
   transition: 300ms ease-in-out
 } */
+.toggle-container{
+  flex: 1;
+}
 
 .nav__simple .theme-toggle{
-  flex-grow: 1;
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  padding: 0px;
+  width: auto;
 }
 
 .single-toggle{
@@ -843,7 +886,7 @@ hr{
   align-self: center;
   font-weight: bold;
   margin: 0 auto;
-  flex-grow: 1;
+  flex: 1;
   text-align: center;
 }
 
