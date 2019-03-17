@@ -295,13 +295,21 @@ pre {
   flex-direction: row;
   flex-wrap: nowrap;
   overflow: auto;
-  -webkit-overflow-scrolling: touch;
-  -ms-overflow-style: -ms-autohiding-scrollbar;
+  /* -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar; */
 }
 
-.drawer-tags::-webkit-scrollbar {
-  display: none;
-}
+::-webkit-scrollbar { width: 10px; z-index: 1000;}
+::-webkit-scrollbar-track { background-color: var(--cardBGHover); }
+::-webkit-scrollbar-thumb { background-color: var(--secondary); }
+::-webkit-scrollbar-thumb:hover { background-color: #999; }
+::-webkit-scrollbar-thumb:active { background-color: #999; }
+
+
+
+/* .drawer-tag::-webkit-scrollbar-track {
+  background-color: red;
+} */
 
 /* .filters-drawer.visible .drawer-contents{
   height: 50px;
@@ -798,6 +806,12 @@ hr{
   margin-right: 2px;
 }
 
+
+code{
+  background-color: var(--codeBG);
+  padding: 2px 5px;
+  color: var(--codeFont);
+}
 /* Simple Nav Styling */
 
 .nav__simple{
